@@ -105,4 +105,4 @@ Documentation is licensed under [Creative Commons Attribution 4.0 International 
 
 Platform source code is licensed under Business Source License 1.1 (BSL 1.1).
 
-© 2024 BeMind Technology
+© 2026 BeMind Technology
