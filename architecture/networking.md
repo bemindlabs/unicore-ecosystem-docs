@@ -1,0 +1,185 @@
+# Networking
+
+## Traffic Flow — External to Internal
+
+```mermaid
+graph LR
+  CF["Cloudflare<br/>unicore.bemind.tech<br/>SSL Termination"]
+  NPM["Nginx Proxy Manager<br/>host:80<br/>admin: localhost:81"]
+  NGX["unicores-unicore-nginx-1<br/>:80<br/>nginx:alpine"]
+  DASH["Dashboard<br/>:3000"]
+  GW["API Gateway<br/>:4000"]
+  OC["OpenClaw<br/>:18789"]
+
+  CF -->|"HTTPS → HTTP"| NPM
+  NPM -->|"http → unicores-unicore-nginx-1:80"| NGX
+  NGX -->|"/ (all pages)"| DASH
+  NGX -->|"/api/* /auth/* /webhooks/*"| GW
+  NGX -->|"/ws (WebSocket)"| OC
+```
+
+All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for `unicore.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies the request to the internal Nginx container. From there, path-based routing determines the final destination service.
+
+## Nginx Proxy Manager
+
+NPM manages the external proxy host:
+
+| Setting | Value |
+|---------|-------|
+| Admin UI | `http://localhost:81` |
+| Credentials | `info@bemind.tech` / `unicore123` |
+| Proxy target | `unicores-unicore-nginx-1:80` |
+
+The proxy host is pointed at the internal Nginx container by service DNS name. NPM and the Nginx container share the external `nginx-proxy` Docker network.
+
+## Internal Nginx Routing
+
+Config file location: `unicore/nginx/default.conf` (mounted read-only into the container at `/etc/nginx/conf.d/default.conf`).
+
+### Route Table
+
+| Path pattern | Upstream | Notes |
+|-------------|----------|-------|
+| `/api/` | `unicore-api-gateway:4000` | All REST API v1 calls |
+| `/auth/` | `unicore-api-gateway:4000` | Login, logout, token refresh |
+| `/webhooks/` | `unicore-api-gateway:4000` | Channel webhook ingestion |
+| `/ws` | `unicore-openclaw-gateway:18789` | WebSocket upgrade |
+| `/` (catch-all) | `unicore-dashboard:3000` | All other pages |
+
+### WebSocket Configuration
+
+The `/ws` location performs an HTTP → WebSocket upgrade:
+
+```nginx
+location /ws {
+    proxy_pass http://openclaw_ws;     # → unicore-openclaw-gateway:18789
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_read_timeout 86400;          # 24-hour idle timeout for long-lived connections
+}
+```
+
+The dashboard also uses HTTP upgrade headers on the catch-all `/` location to support Next.js hot-module replacement in development.
+
+### Upstream Definitions
+
+```nginx
+upstream dashboard    { server unicore-dashboard:3000; }
+upstream api          { server unicore-api-gateway:4000; }
+upstream openclaw_ws  { server unicore-openclaw-gateway:18789; }
+```
+
+Nginx resolves these names via Docker's internal DNS using service names defined in `docker-compose.yml`.
+
+## Docker Networks
+
+```mermaid
+graph TD
+  subgraph default [Docker default network — unicores_default]
+    GW[API Gateway :4000]
+    ERP[ERP :4100]
+    AI[AI Engine :4200]
+    RAG[RAG :4300]
+    BS[Bootstrap :4500]
+    LIC[License API :4600]
+    OC[OpenClaw :18789/18790]
+    WF[Workflow :4400]
+    DASH[Dashboard :3000]
+    PG[(PostgreSQL :5432)]
+    RD[(Redis :6379)]
+    QD[(Qdrant :6333)]
+    KF[Kafka :9092]
+    ZK[Zookeeper :2181]
+    LDB[(License DB)]
+    LRD[(License Redis)]
+    NGX[Nginx :80]
+  end
+
+  subgraph external [nginx-proxy network — external]
+    NPM[Nginx Proxy Manager]
+    NGX
+  end
+```
+
+All containers share a single default Docker Compose network (`unicores_default`). This allows every container to reach every other container by service name. The Nginx container additionally joins the external `nginx-proxy` network so NPM can forward traffic to it.
+
+### External Network Declaration
+
+```yaml
+networks:
+  nginx-proxy:
+    external: true
+```
+
+The `nginx-proxy` network must be created before the first `docker compose up`:
+
+```bash
+docker network create nginx-proxy
+```
+
+## Internal DNS
+
+Within the Docker default network, services communicate by their Compose service name:
+
+| Service name | Internal address | Protocol |
+|-------------|-----------------|----------|
+| `unicore-postgres` | `unicore-postgres:5432` | PostgreSQL |
+| `unicore-redis` | `unicore-redis:6379` | Redis |
+| `unicore-vectordb` | `unicore-vectordb:6333` | HTTP/gRPC |
+| `unicore-kafka` | `unicore-kafka:9092` | Kafka protocol |
+| `unicore-zookeeper` | `unicore-zookeeper:2181` | Zookeeper |
+| `unicore-api-gateway` | `unicore-api-gateway:4000` | HTTP |
+| `unicore-erp` | `unicore-erp:4100` | HTTP |
+| `unicore-ai-engine` | `unicore-ai-engine:4200` | HTTP |
+| `unicore-rag` | `unicore-rag:4300` | HTTP |
+| `unicore-bootstrap` | `unicore-bootstrap:4500` | HTTP |
+| `unicore-license-api` | `unicore-license-api:4600` | HTTP |
+| `unicore-openclaw-gateway` | `unicore-openclaw-gateway:18789` | WebSocket |
+| `unicore-openclaw-gateway` | `unicore-openclaw-gateway:18790` | HTTP |
+| `unicore-dashboard` | `unicore-dashboard:3000` | HTTP |
+| `unicore-license-db` | `unicore-license-db:5432` | PostgreSQL |
+| `unicore-license-redis` | `unicore-license-redis:6379` | Redis |
+
+## Port Map
+
+### Exposed to Host
+
+| Host port | Container port | Service | Protocol |
+|-----------|---------------|---------|----------|
+| `80` | `80` | `unicore-nginx` | HTTP (proxied through NPM + Cloudflare) |
+| `3000` | `3000` | `unicore-dashboard` | HTTP |
+| `4000` | `4000` | `unicore-api-gateway` | HTTP |
+| `4100` | `4100` | `unicore-erp` | HTTP |
+| `4200` | `4200` | `unicore-ai-engine` | HTTP |
+| `4300` | `4300` | `unicore-rag` | HTTP |
+| `4500` | `4500` | `unicore-bootstrap` | HTTP |
+| `4600` | `4600` | `unicore-license-api` | HTTP |
+| `5433` | `5432` | `unicore-postgres` | PostgreSQL |
+| `6333` | `6333` | `unicore-vectordb` | HTTP/gRPC |
+| `6380` | `6379` | `unicore-redis` | Redis |
+| `9092` | `9092` | `unicore-kafka` | Kafka |
+| `18790` | `18790` | `unicore-openclaw-gateway` | HTTP |
+
+### Internal Only (Not Exposed to Host)
+
+| Internal port | Service | Protocol |
+|-------------|---------|----------|
+| `2181` | `unicore-zookeeper` | Zookeeper |
+| `4400` | `unicore-workflow` | HTTP |
+| `18789` | `unicore-openclaw-gateway` | WebSocket |
+| `5432` | `unicore-license-db` | PostgreSQL |
+| `6379` | `unicore-license-redis` | Redis |
+
+## Header Propagation
+
+All Nginx proxy locations forward these headers to downstream services:
+
+| Header | Value |
+|--------|-------|
+| `Host` | `$host` |
+| `X-Real-IP` | `$remote_addr` |
+| `X-Forwarded-For` | `$proxy_add_x_forwarded_for` |
+| `X-Forwarded-Proto` | `$scheme` |
+
+These headers allow backend services to log the real client IP and detect whether the original request was HTTPS.
