@@ -7,7 +7,7 @@ The Enterprise Edition is designed for organizations requiring multi-tenancy, co
 | Attribute | Value |
 |-----------|-------|
 | **License** | Proprietary (contact sales) |
-| **Repository** | [github.com/bemindlabs/unicore-enterprise](https://github.com/bemindlabs/unicore-enterprise) |
+| **Repository** | Private (available with Enterprise license) |
 | **Price** | Custom pricing (annual contract) |
 | **Hosting** | Self-hosted or managed cloud |
 | **Edition flag** | `UNICORE_EDITION: enterprise` |

@@ -183,7 +183,7 @@ SAML_ISSUER=https://yourdomain.com
 SAML_CERT=/run/secrets/saml_idp_cert
 ```
 
-> Never commit SSO secrets to source control. Use Docker secrets or a vault solution — see [Secret Management](best-practices.md#secret-management).
+> Never commit SSO secrets to source control. Use Docker secrets or a vault solution — see [Best Practices](best-practices.md).
 
 ---
 

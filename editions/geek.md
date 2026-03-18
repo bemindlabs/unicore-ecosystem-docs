@@ -7,7 +7,7 @@ The Geek Edition is a terminal-first variant of UniCore built for developers, po
 | Attribute | Value |
 |-----------|-------|
 | **License** | Business Source License 1.1 (BSL 1.1) |
-| **Repository** | [github.com/bemindlabs/unicore-geek](https://github.com/bemindlabs/unicore-geek) |
+| **Repository** | Private (available with license) |
 | **Price** | Free (Community base) / Pro license for extended agents |
 | **Hosting** | Self-hosted |
 | **Edition flag** | `UNICORE_EDITION: geek` |
@@ -229,7 +229,7 @@ The backend API, ERP, AI Engine, RAG, and all other services run identically. Ge
 ## Installation
 
 ```bash
-# Clone the Geek Edition repo
+# Clone the Geek Edition repo (requires license — request access at https://unicore.bemind.tech/get-started)
 git clone https://github.com/bemindlabs/unicore-geek.git
 cd unicore-geek
 

@@ -12,11 +12,11 @@ This repository contains all public-facing documentation for the UniCore ecosyst
 |---------|-----------|-------------|
 | **Community** | [unicore](https://github.com/bemindlabs/unicore) | Open-core edition with dashboard, API gateway, ERP, AI engine, RAG, and workflow engine |
 | **Pro** | [unicore-pro](https://github.com/bemindlabs/unicore-pro) | Extended features: SSO, RBAC, white-label, advanced workflows, all messaging channels |
-| **Enterprise** | [unicore-enterprise](https://github.com/bemindlabs/unicore-enterprise) | Multi-tenancy, compliance (GDPR/SOC2), HA clustering, enterprise SSO (SAML/AD/OIDC) |
-| **Geek** | [unicore-geek](https://github.com/bemindlabs/unicore-geek) | Terminal-first edition with game mode, TUI, REPL console — no dashboard |
-| **License Server** | [unicore-license](https://github.com/bemindlabs/unicore-license) | License validation, key management, and machine binding |
-| **AI DLC** | [unicore-ai-dlc](https://github.com/bemindlabs/unicore-ai-dlc) | AI Developer Lifecycle Chat — distributed WebSocket gateway for developer workflows |
-| **Platform** | [unicore-platform](https://github.com/bemindlabs/unicore-platform) | Public website — landing pages, pricing, showcases (Next.js 14) |
+| **Enterprise** | unicore-enterprise | Multi-tenancy, compliance (GDPR/SOC2), HA clustering, enterprise SSO (SAML/AD/OIDC) |
+| **Geek** | unicore-geek | Terminal-first edition with game mode, TUI, REPL console — no dashboard |
+| **License Server** | unicore-license | License validation, key management, and machine binding |
+| **AI DLC** | unicore-ai-dlc | AI Developer Lifecycle Chat — distributed WebSocket gateway for developer workflows |
+| **Platform** | unicore-platform | Public website — landing pages, pricing, showcases (Next.js 14) |
 
 ## Documentation Structure
 
@@ -94,7 +94,7 @@ The UniCore platform is built with:
 
 - **Website**: [unicore.bemind.tech](https://unicore.bemind.tech)
 - **Dashboard**: [unicore-dashboard.bemind.tech](https://unicore-dashboard.bemind.tech)
-- **Main Repo**: [unicore-ecosystem](https://github.com/bemindlabs/unicore-ecosystem)
+- **Main Repo**: [unicore](https://github.com/bemindlabs/unicore)
 - **Issues**: [GitHub Issues](https://github.com/bemindlabs/unicore-ecosystem-docs/issues)
 - **Wiki**: [GitHub Wiki](https://github.com/bemindlabs/unicore-ecosystem-docs/wiki)
 

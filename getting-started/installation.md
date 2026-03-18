@@ -242,6 +242,6 @@ docker compose ps unicore-postgres
 # Wait until Status shows "healthy", then retry db/setup
 ```
 
-**Port already in use**: Find and stop the conflicting process, or edit the host port in `docker-compose.yml`. See [system-requirements.md](system-requirements.md#port-requirements) for the full port list.
+**Port already in use**: Find and stop the conflicting process, or edit the host port in `docker-compose.yml`. See [System Requirements](system-requirements.md) for the full port list.
 
 **Submodule directory empty**: Run `git submodule update --init --recursive` from the repo root.

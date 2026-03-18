@@ -172,8 +172,8 @@ make logs
 
 ## Next Steps
 
-- **Configure AI providers** — see [configuration.md](configuration.md#ai-providers)
-- **Set up messaging channels** — see the [Channels guide](../guides/channels/)
-- **Build a workflow** — see the [Workflows guide](../guides/workflows/)
+- **Configure AI providers** — see [Configuration](configuration.md)
+- **Set up messaging channels** — see the [Channels Guide](../guides/channels.md)
+- **Build a workflow** — see the [Workflows Guide](../guides/workflows.md)
 - **Deploy to production** — see the [Docker deployment guide](../deployment/docker.md)
 - **Upgrade to Pro** — see the [Pro edition guide](../editions/pro.md)
