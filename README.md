@@ -11,7 +11,7 @@ This repository contains all public-facing documentation for the UniCore ecosyst
 | Edition | Repository | Description |
 |---------|-----------|-------------|
 | **Community** | [unicore](https://github.com/bemindlabs/unicore) | Open-core edition with dashboard, API gateway, ERP, AI engine, RAG, and workflow engine |
-| **Pro** | [unicore-pro](https://github.com/bemindlabs/unicore-pro) | Extended features: SSO, RBAC, white-label, advanced workflows, all messaging channels |
+| **Pro** | unicore-pro | Extended features: SSO, RBAC, white-label, advanced workflows, all messaging channels |
 | **Enterprise** | unicore-enterprise | Multi-tenancy, compliance (GDPR/SOC2), HA clustering, enterprise SSO (SAML/AD/OIDC) |
 | **Geek** | unicore-geek | Terminal-first edition with game mode, TUI, REPL console — no dashboard |
 | **License Server** | unicore-license | License validation, key management, and machine binding |

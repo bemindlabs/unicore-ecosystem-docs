@@ -7,7 +7,7 @@ The Pro Edition extends the Community Edition with advanced agent capabilities, 
 | Attribute | Value |
 |-----------|-------|
 | **License** | Business Source License 1.1 (BSL 1.1) |
-| **Repository** | [github.com/bemindlabs/unicore-pro](https://github.com/bemindlabs/unicore-pro) |
+| **Repository** | Private (available with Pro license) |
 | **Price** | Paid (license key required) |
 | **Hosting** | Self-hosted (Docker Compose) |
 | **Edition flag** | `UNICORE_EDITION: full` |
