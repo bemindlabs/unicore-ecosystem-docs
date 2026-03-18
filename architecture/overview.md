@@ -82,7 +82,7 @@ C4Container
 
 ## Multi-Repo Structure
 
-UniCore is maintained across five GitHub repositories, three of which are active submodules in the production deployment:
+UniCore is maintained across eight GitHub repositories, five of which are active submodules in the production deployment:
 
 ```
 unicores/                          (root workspace — production compose)
@@ -91,6 +91,8 @@ unicores/                          (root workspace — production compose)
 ├── unicore-license/               Proprietary — License server
 ├── unicore-enterprise/            Proprietary — Enterprise clustering & compliance
 ├── unicore-geek/                  BSL 1.1   — Terminal-first TUI edition
+├── unicore-ai-dlc/                BSL 1.1   — AI Developer Lifecycle Chat
+├── unicore-platform/              BSL 1.1   — Public website (landing, pricing, showcases)
 └── unicore-ecosystem-docs/        CC BY 4.0 — This documentation
 ```
 
@@ -101,6 +103,8 @@ unicores/                          (root workspace — production compose)
 | `unicore-license` | github.com/bemindlabs/unicore-license | Proprietary | License server: Ed25519-signed keys, machine binding, feature flag enforcement |
 | `unicore-enterprise` | github.com/bemindlabs/unicore-enterprise | Proprietary | Multi-tenancy, HA clustering, GDPR/SOC2 compliance, SAML/AD/OIDC enterprise SSO |
 | `unicore-geek` | github.com/bemindlabs/unicore-geek | BSL 1.1 | Terminal-first edition: TUI dashboard, REPL console, game mode, no web UI |
+| `unicore-ai-dlc` | github.com/bemindlabs/unicore-ai-dlc | BSL 1.1 | AI Developer Lifecycle Chat: distributed WebSocket gateway for developer workflows |
+| `unicore-platform` | github.com/bemindlabs/unicore-platform | BSL 1.1 | Public website: landing pages, pricing, showcases (Next.js 14, port 3100) |
 
 ## Edition Model
 

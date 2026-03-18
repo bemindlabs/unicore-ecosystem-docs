@@ -1,6 +1,6 @@
 # Services
 
-UniCore runs 17 Docker containers, grouped into infrastructure services (always up), application services (started via the `apps` profile), and workflow services (started via the `workflows` profile).
+UniCore runs 19 Docker containers, grouped into infrastructure services (always up), application services (started via the `apps` profile), and workflow services (started via the `workflows` profile).
 
 ## Service Inventory
 
@@ -15,6 +15,8 @@ UniCore runs 17 Docker containers, grouped into infrastructure services (always 
 | License API | `unicores-unicore-license-api-1` | `4600:4600` | NestJS 10 | `apps` | Build from source |
 | Workflow | `unicores-unicore-workflow-1` | — (4400 internal) | NestJS 10 | `workflows` | Build from source |
 | OpenClaw Gateway | `unicores-unicore-openclaw-gateway-1` | `18790:18790` | NestJS 10 | `apps` | Build from source |
+| Platform | `unicores-unicore-platform-1` | `3100:3100` | Next.js 14 | `apps` | Build from source |
+| DLC Gateway | `unicores-unicore-dlc-gateway-1` | `19789:19789`, `19790:19790` | NestJS 10 | `apps` | Build from source |
 | Nginx | `unicores-unicore-nginx-1` | `80:80` | nginx:alpine | `apps` | Pulled image |
 | PostgreSQL | `unicores-unicore-postgres-1` | `5433:5432` | postgres:16-alpine | — (always) | Pulled image |
 | Redis | `unicores-unicore-redis-1` | `6380:6379` | redis:7-alpine | — (always) | Pulled image |
@@ -71,6 +73,19 @@ Multi-agent WebSocket hub. Clients connect via `/ws` and communicate with one of
 - **Ports**: `18789` (WebSocket), `18790` (HTTP)
 - **Key env**: `REDIS_URL`
 
+### Platform (`unicore-platform`)
+Next.js 14 public-facing website. Serves the landing page, pricing, showcases, and other marketing pages at `unicore.bemind.tech`. Runs independently from the dashboard on port 3100.
+
+- **Build context**: `./unicore-platform` — `Dockerfile`
+- **Key env**: `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SITE_URL`
+
+### DLC Gateway (`unicore-dlc-gateway`)
+NestJS distributed WebSocket gateway for the AI Developer Lifecycle Chat system. Provides real-time developer workflow communication. The WebSocket port (`19789`) handles persistent client connections; the HTTP port (`19790`) serves REST endpoints for inter-service calls.
+
+- **Build context**: `./unicore-ai-dlc` — `services/dlc-gateway/Dockerfile`
+- **Ports**: `19789` (WebSocket), `19790` (HTTP)
+- **Key env**: `REDIS_URL`
+
 ### Workflow Engine (`unicore-workflow`)
 Event-driven automation engine. Consumes Kafka topics published by the ERP service, matches events against registered workflow definitions, and executes action chains — including calling OpenClaw agents, sending Telegram/LINE messages, and updating ERP records. Requires Kafka to be healthy before starting.
 
@@ -118,6 +133,8 @@ graph TD
     OC[OpenClaw :18789/18790]
     WF[Workflow :4400]
     DASH[Dashboard :3000]
+    PLAT[Platform :3100]
+    DLC[DLC Gateway :19789/19790]
     NGX[Nginx :80]
   end
 
@@ -140,9 +157,11 @@ graph TD
   LDB --> LIC
   LRD --> LIC
   GW --> DASH
+  RD --> DLC
   GW --> NGX
   OC --> NGX
   DASH --> NGX
+  PLAT --> NGX
 
   ERP --> KF
   WF --> ERP
@@ -156,7 +175,7 @@ graph TD
 | _(none)_ | PostgreSQL, Redis, Qdrant | Infrastructure only — DB init, migrations |
 | `apps` | All above + all application services + Nginx + License DB + License Redis | Normal operation |
 | `workflows` | Zookeeper, Kafka, Workflow Engine | Kafka-driven automation |
-| `apps` + `workflows` | Everything (all 17 containers) | Full production |
+| `apps` + `workflows` | Everything (all 19 containers) | Full production |
 
 ```bash
 # Infrastructure only
@@ -165,7 +184,7 @@ docker compose up -d
 # Apps without Kafka workflow engine
 docker compose --profile apps up -d
 
-# Full production (all 17 containers)
+# Full production (all 19 containers)
 docker compose --profile apps --profile workflows up -d
 ```
 
@@ -184,5 +203,7 @@ All application services are built from source at deploy time. The root `docker-
 | OpenClaw | `./unicore` | `services/openclaw-gateway/Dockerfile` |
 | Workflow | `./unicore` | `services/workflow/Dockerfile` |
 | License API | `./unicore-license` | `services/license-api/Dockerfile` |
+| Platform | `./unicore-platform` | `Dockerfile` |
+| DLC Gateway | `./unicore-ai-dlc` | `services/dlc-gateway/Dockerfile` |
 
 Infrastructure services (PostgreSQL, Redis, Qdrant, Kafka, Zookeeper, Nginx) use pre-built public images with no custom build step.

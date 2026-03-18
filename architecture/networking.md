@@ -4,39 +4,51 @@
 
 ```mermaid
 graph LR
-  CF["Cloudflare<br/>unicore.bemind.tech<br/>SSL Termination"]
+  CF["Cloudflare<br/>SSL Termination"]
   NPM["Nginx Proxy Manager<br/>host:80<br/>admin: localhost:81"]
   NGX["unicores-unicore-nginx-1<br/>:80<br/>nginx:alpine"]
+  PLAT["Platform<br/>:3100"]
   DASH["Dashboard<br/>:3000"]
   GW["API Gateway<br/>:4000"]
   OC["OpenClaw<br/>:18789"]
 
-  CF -->|"HTTPS → HTTP"| NPM
+  CF -->|"unicore.bemind.tech<br/>HTTPS → HTTP"| NPM
+  CF -->|"unicore-dashboard.bemind.tech<br/>HTTPS → HTTP"| NPM
   NPM -->|"http → unicores-unicore-nginx-1:80"| NGX
-  NGX -->|"/ (all pages)"| DASH
-  NGX -->|"/api/* /auth/* /webhooks/*"| GW
-  NGX -->|"/ws (WebSocket)"| OC
+  NGX -->|"unicore.bemind.tech<br/>/ (public website)"| PLAT
+  NGX -->|"unicore-dashboard.bemind.tech<br/>/ (all pages)"| DASH
+  NGX -->|"unicore-dashboard.bemind.tech<br/>/api/* /auth/* /webhooks/*"| GW
+  NGX -->|"unicore-dashboard.bemind.tech<br/>/ws (WebSocket)"| OC
 ```
 
-All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for `unicore.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies the request to the internal Nginx container. From there, path-based routing determines the final destination service.
+All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for both `unicore.bemind.tech` and `unicore-dashboard.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies both subdomains to the internal Nginx container. Nginx uses two server blocks: `unicore.bemind.tech` routes all traffic to the Platform service (public website), while `unicore-dashboard.bemind.tech` uses path-based routing to reach the Dashboard, API Gateway, and OpenClaw services.
 
 ## Nginx Proxy Manager
 
-NPM manages the external proxy host:
+NPM manages the external proxy hosts for both subdomains:
 
 | Setting | Value |
 |---------|-------|
 | Admin UI | `http://localhost:81` |
 | Credentials | `info@bemind.tech` / `unicore123` |
-| Proxy target | `unicores-unicore-nginx-1:80` |
+| Proxy target (`unicore.bemind.tech`) | `unicores-unicore-nginx-1:80` |
+| Proxy target (`unicore-dashboard.bemind.tech`) | `unicores-unicore-nginx-1:80` |
 
-The proxy host is pointed at the internal Nginx container by service DNS name. NPM and the Nginx container share the external `nginx-proxy` Docker network.
+Both proxy hosts are pointed at the internal Nginx container by service DNS name. NPM and the Nginx container share the external `nginx-proxy` Docker network.
 
 ## Internal Nginx Routing
 
 Config file location: `unicore/nginx/default.conf` (mounted read-only into the container at `/etc/nginx/conf.d/default.conf`).
 
 ### Route Table
+
+**Server block: `unicore.bemind.tech`** (public website)
+
+| Path pattern | Upstream | Notes |
+|-------------|----------|-------|
+| `/` (catch-all) | `unicore-platform:3100` | Public website — landing, pricing, showcases |
+
+**Server block: `unicore-dashboard.bemind.tech`** (dashboard + API)
 
 | Path pattern | Upstream | Notes |
 |-------------|----------|-------|
@@ -66,6 +78,7 @@ The dashboard also uses HTTP upgrade headers on the catch-all `/` location to su
 
 ```nginx
 upstream dashboard    { server unicore-dashboard:3000; }
+upstream platform     { server unicore-platform:3100; }
 upstream api          { server unicore-api-gateway:4000; }
 upstream openclaw_ws  { server unicore-openclaw-gateway:18789; }
 ```
@@ -86,6 +99,8 @@ graph TD
     OC[OpenClaw :18789/18790]
     WF[Workflow :4400]
     DASH[Dashboard :3000]
+    PLAT[Platform :3100]
+    DLC[DLC Gateway :19789/19790]
     PG[(PostgreSQL :5432)]
     RD[(Redis :6379)]
     QD[(Qdrant :6333)]
@@ -138,6 +153,9 @@ Within the Docker default network, services communicate by their Compose service
 | `unicore-openclaw-gateway` | `unicore-openclaw-gateway:18789` | WebSocket |
 | `unicore-openclaw-gateway` | `unicore-openclaw-gateway:18790` | HTTP |
 | `unicore-dashboard` | `unicore-dashboard:3000` | HTTP |
+| `unicore-platform` | `unicore-platform:3100` | HTTP |
+| `unicore-dlc-gateway` | `unicore-dlc-gateway:19789` | WebSocket |
+| `unicore-dlc-gateway` | `unicore-dlc-gateway:19790` | HTTP |
 | `unicore-license-db` | `unicore-license-db:5432` | PostgreSQL |
 | `unicore-license-redis` | `unicore-license-redis:6379` | Redis |
 
@@ -160,6 +178,9 @@ Within the Docker default network, services communicate by their Compose service
 | `6380` | `6379` | `unicore-redis` | Redis |
 | `9092` | `9092` | `unicore-kafka` | Kafka |
 | `18790` | `18790` | `unicore-openclaw-gateway` | HTTP |
+| `3100` | `3100` | `unicore-platform` | HTTP |
+| `19789` | `19789` | `unicore-dlc-gateway` | WebSocket |
+| `19790` | `19790` | `unicore-dlc-gateway` | HTTP |
 
 ### Internal Only (Not Exposed to Host)
 

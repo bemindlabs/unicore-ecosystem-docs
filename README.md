@@ -15,6 +15,8 @@ This repository contains all public-facing documentation for the UniCore ecosyst
 | **Enterprise** | [unicore-enterprise](https://github.com/bemindlabs/unicore-enterprise) | Multi-tenancy, compliance (GDPR/SOC2), HA clustering, enterprise SSO (SAML/AD/OIDC) |
 | **Geek** | [unicore-geek](https://github.com/bemindlabs/unicore-geek) | Terminal-first edition with game mode, TUI, REPL console — no dashboard |
 | **License Server** | [unicore-license](https://github.com/bemindlabs/unicore-license) | License validation, key management, and machine binding |
+| **AI DLC** | [unicore-ai-dlc](https://github.com/bemindlabs/unicore-ai-dlc) | AI Developer Lifecycle Chat — distributed WebSocket gateway for developer workflows |
+| **Platform** | [unicore-platform](https://github.com/bemindlabs/unicore-platform) | Public website — landing pages, pricing, showcases (Next.js 14) |
 
 ## Documentation Structure
 
@@ -28,7 +30,7 @@ unicore-ecosystem-docs/
 │   └── first-steps.md            ← Post-install walkthrough
 ├── architecture/
 │   ├── overview.md               ← High-level system design
-│   ├── services.md               ← 17-container service map
+│   ├── services.md               ← 19-container service map
 │   ├── networking.md             ← Routing, proxies, ports
 │   ├── databases.md              ← PostgreSQL, Redis, Qdrant schemas
 │   └── messaging.md              ← Kafka topics & event flows
@@ -90,7 +92,8 @@ The UniCore platform is built with:
 
 ## Quick Links
 
-- **Live Demo**: [unicore.bemind.tech](https://unicore.bemind.tech)
+- **Website**: [unicore.bemind.tech](https://unicore.bemind.tech)
+- **Dashboard**: [unicore-dashboard.bemind.tech](https://unicore-dashboard.bemind.tech)
 - **Main Repo**: [unicore-ecosystem](https://github.com/bemindlabs/unicore-ecosystem)
 - **Issues**: [GitHub Issues](https://github.com/bemindlabs/unicore-ecosystem-docs/issues)
 - **Wiki**: [GitHub Wiki](https://github.com/bemindlabs/unicore-ecosystem-docs/wiki)
