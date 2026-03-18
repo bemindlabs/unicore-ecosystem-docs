@@ -210,4 +210,4 @@ Enterprise SSO can map IdP groups to UniCore roles:
 - [Authentication](authentication.md)
 - [Data Privacy](data-privacy.md)
 - [Best Practices](best-practices.md)
-- [Pro RBAC package source](../../../unicore-pro/packages/rbac/)
+- Pro RBAC package (available in UniCore Pro edition)

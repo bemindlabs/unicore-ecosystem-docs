@@ -233,4 +233,4 @@ API keys bypass the refresh flow but are bound to the creating user's role. Revo
 
 - [Authorization & RBAC](authorization.md)
 - [Best Practices & Hardening](best-practices.md)
-- [Pro SSO package source](../../../unicore-pro/packages/sso/)
+- Pro SSO package (available in UniCore Pro edition)
