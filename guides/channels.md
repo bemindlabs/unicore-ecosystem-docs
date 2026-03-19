@@ -52,12 +52,7 @@ The webhook validates the `X-Telegram-Bot-Api-Secret-Token` header against the c
 
 **Prerequisites:** Create a LINE Messaging API channel at [LINE Developers Console](https://developers.line.biz/console/).
 
-**Environment variables:**
-```env
-LINE_CHANNEL_ID=your-channel-id
-LINE_CHANNEL_SECRET=your-channel-secret
-LINE_CHANNEL_ACCESS_TOKEN=your-access-token
-```
+**Configuration:** Add your LINE Channel ID, Channel Secret, and Channel Access Token via the dashboard **Settings → Channels** page.
 
 **Webhook endpoint:** `POST /webhooks/line`
 
