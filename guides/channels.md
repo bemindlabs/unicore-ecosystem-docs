@@ -153,7 +153,7 @@ import { ChannelModule } from '@unicore/channels';
         type: 'telegram',
         channelId: 'telegram-main',
         displayName: 'Telegram Bot',
-        botToken: process.env.TELEGRAM_BOT_TOKEN,
+        botToken: config.get('TELEGRAM_BOT_TOKEN'),
       },
       {
         type: 'line',
