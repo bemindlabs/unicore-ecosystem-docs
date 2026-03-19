@@ -38,15 +38,11 @@ End User (Telegram/LINE/Slack/...) → Webhook → Channel Adapter → Normalize
 
 **Prerequisites:** Create a bot via [@BotFather](https://t.me/BotFather) on Telegram.
 
-**Environment variables:**
-```env
-TELEGRAM_BOT_TOKEN=your-bot-token
-TELEGRAM_WEBHOOK_SECRET=your-webhook-secret
-```
+**Configuration:** Add your Telegram Bot Token and webhook secret via the dashboard **Settings → Channels** page.
 
 **Webhook endpoint:** `POST /webhooks/telegram`
 
-The webhook validates the `X-Telegram-Bot-Api-Secret-Token` header against `TELEGRAM_WEBHOOK_SECRET`.
+The webhook validates the `X-Telegram-Bot-Api-Secret-Token` header against the configured webhook secret.
 
 **Connection modes:**
 - **Webhook** (recommended): Register webhook URL with Telegram; messages arrive instantly
