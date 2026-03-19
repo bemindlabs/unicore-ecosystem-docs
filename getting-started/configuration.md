@@ -98,15 +98,9 @@ NEXT_PUBLIC_API_URL=https://unicore.bemind.tech
 
 ## AI Providers
 
-UniCore's AI engine supports multiple LLM providers. At least one API key is required to use AI features.
+UniCore's AI engine supports multiple LLM providers. API keys are configured via the dashboard **Settings → AI → Providers** page after deployment.
 
 ```bash
-# OpenAI
-OPENAI_API_KEY=sk-...               # Get from platform.openai.com
-
-# Anthropic
-ANTHROPIC_API_KEY=sk-ant-...        # Get from console.anthropic.com
-
 # Local Ollama (no key required)
 # OLLAMA_BASE_URL=http://localhost:11434
 
@@ -114,7 +108,7 @@ ANTHROPIC_API_KEY=sk-ant-...        # Get from console.anthropic.com
 # LLM_PRIMARY_PROVIDER=openai       # openai | anthropic | ollama
 ```
 
-If no API key is provided, AI features (chat, agent queries, RAG responses) will return an error. The platform itself (ERP, dashboard, settings) continues to function without AI keys.
+If no API key is configured, AI features (chat, agent queries, RAG responses) will return an error. The platform itself (ERP, dashboard, settings) continues to function without AI keys.
 
 **Provider selection logic**: The AI engine picks the primary provider based on `LLM_PRIMARY_PROVIDER`. If that provider's key is missing, it falls back to the next available one. If no providers are configured, AI endpoints return `503`.
 
