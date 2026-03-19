@@ -13,15 +13,15 @@ graph LR
   OC["OpenClaw<br/>:18789"]
 
   CF -->|"unicore.bemind.tech<br/>HTTPS → HTTP"| NPM
-  CF -->|"unicore-dashboard.bemind.tech<br/>HTTPS → HTTP"| NPM
+  CF -->|"unicore-demo.bemind.tech<br/>HTTPS → HTTP"| NPM
   NPM -->|"http → unicores-unicore-nginx-1:80"| NGX
   NGX -->|"unicore.bemind.tech<br/>/ (public website)"| PLAT
-  NGX -->|"unicore-dashboard.bemind.tech<br/>/ (all pages)"| DASH
-  NGX -->|"unicore-dashboard.bemind.tech<br/>/api/* /auth/* /webhooks/*"| GW
-  NGX -->|"unicore-dashboard.bemind.tech<br/>/ws (WebSocket)"| OC
+  NGX -->|"unicore-demo.bemind.tech<br/>/ (all pages)"| DASH
+  NGX -->|"unicore-demo.bemind.tech<br/>/api/* /auth/* /webhooks/*"| GW
+  NGX -->|"unicore-demo.bemind.tech<br/>/ws (WebSocket)"| OC
 ```
 
-All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for both `unicore.bemind.tech` and `unicore-dashboard.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies both subdomains to the internal Nginx container. Nginx uses two server blocks: `unicore.bemind.tech` routes all traffic to the Platform service (public website), while `unicore-dashboard.bemind.tech` uses path-based routing to reach the Dashboard, API Gateway, and OpenClaw services.
+All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for both `unicore.bemind.tech` and `unicore-demo.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies both subdomains to the internal Nginx container. Nginx uses two server blocks: `unicore.bemind.tech` routes all traffic to the Platform service (public website), while `unicore-demo.bemind.tech` uses path-based routing to reach the Dashboard, API Gateway, and OpenClaw services.
 
 ## Nginx Proxy Manager
 
@@ -32,7 +32,7 @@ NPM manages the external proxy hosts for both subdomains:
 | Admin UI | `http://localhost:81` |
 | Credentials | `info@bemind.tech` / `unicore123` |
 | Proxy target (`unicore.bemind.tech`) | `unicores-unicore-nginx-1:80` |
-| Proxy target (`unicore-dashboard.bemind.tech`) | `unicores-unicore-nginx-1:80` |
+| Proxy target (`unicore-demo.bemind.tech`) | `unicores-unicore-nginx-1:80` |
 
 Both proxy hosts are pointed at the internal Nginx container by service DNS name. NPM and the Nginx container share the external `nginx-proxy` Docker network.
 
@@ -48,7 +48,7 @@ Config file location: `unicore/nginx/default.conf` (mounted read-only into the c
 |-------------|----------|-------|
 | `/` (catch-all) | `unicore-platform:3100` | Public website — landing, pricing, showcases |
 
-**Server block: `unicore-dashboard.bemind.tech`** (dashboard + API)
+**Server block: `unicore-demo.bemind.tech`** (dashboard + API)
 
 | Path pattern | Upstream | Notes |
 |-------------|----------|-------|
