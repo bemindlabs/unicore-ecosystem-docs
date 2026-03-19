@@ -73,9 +73,7 @@ JWT_REFRESH_SECRET="dev-refresh-secret-change-in-production"
 # Bootstrap
 BOOTSTRAP_SECRET="unicore-bootstrap-secret-local"
 
-# AI (optional for local dev)
-OPENAI_API_KEY="sk-..."
-ANTHROPIC_API_KEY="..."
+# AI provider keys are configured via dashboard Settings → AI → Providers
 
 # Qdrant (vector DB)
 QDRANT_URL="http://localhost:6333"
