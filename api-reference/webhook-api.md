@@ -200,12 +200,9 @@ UniCore returns `200 OK` for all valid requests. Telegram retries failed request
 { "ok": true }
 ```
 
-### Environment Variables
+### Configuration
 
-| Variable | Description |
-|----------|-------------|
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot API token |
-| `TELEGRAM_WEBHOOK_SECRET` | Optional secret token for request validation |
+Telegram Bot Token and webhook secret are configured via the dashboard **Settings → Channels** page.
 
 ---
 
