@@ -57,7 +57,7 @@ function validateLineSignature(
 | Header | Required | Description |
 |--------|----------|-------------|
 | `Content-Type` | Yes | `application/json` |
-| `X-Line-Signature` | Yes (if `LINE_CHANNEL_SECRET` is set) | HMAC-SHA256 signature |
+| `X-Line-Signature` | Yes (if LINE Channel Secret is configured) | HMAC-SHA256 signature |
 
 ### Request Payload
 
