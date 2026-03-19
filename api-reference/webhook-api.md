@@ -133,7 +133,7 @@ Telegram sends Update objects to this URL when the bot receives messages or othe
 
 ### Secret Token Verification
 
-Telegram supports an optional `X-Telegram-Bot-Api-Secret-Token` header. When `TELEGRAM_WEBHOOK_SECRET` is set in the environment, UniCore validates this header on every incoming request. Requests with an incorrect token return `403 Forbidden`.
+Telegram supports an optional `X-Telegram-Bot-Api-Secret-Token` header. When a Telegram webhook secret is configured via dashboard Settings, UniCore validates this header on every incoming request. Requests with an incorrect token return `403 Forbidden`.
 
 Set the secret token when registering the webhook URL with Telegram:
 
