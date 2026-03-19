@@ -148,7 +148,7 @@ https://api.telegram.org/bot<token>/setWebhook
 | Header | Required | Description |
 |--------|----------|-------------|
 | `Content-Type` | Yes | `application/json` |
-| `X-Telegram-Bot-Api-Secret-Token` | Conditional | Required if `TELEGRAM_WEBHOOK_SECRET` is configured |
+| `X-Telegram-Bot-Api-Secret-Token` | Conditional | Required if a Telegram webhook secret is configured via dashboard Settings |
 
 ### Request Payload
 
