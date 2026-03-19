@@ -267,16 +267,11 @@ Channel-related environment variables in `docker-compose.yml`:
 ```yaml
 unicore-api-gateway:
   environment:
-    TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
-    TELEGRAM_WEBHOOK_SECRET: ${TELEGRAM_WEBHOOK_SECRET:-unicore-telegram-secret}
-    LINE_CHANNEL_ID: ${LINE_CHANNEL_ID:-}
-    LINE_CHANNEL_SECRET: ${LINE_CHANNEL_SECRET:-}
-    LINE_CHANNEL_ACCESS_TOKEN: ${LINE_CHANNEL_ACCESS_TOKEN:-}
     # Pro feature flag — enables all channel adapters
     ENABLE_ALL_CHANNELS: "true"
 ```
 
-Other channels (Facebook, Instagram, WhatsApp, Slack, Discord, Email, WebChat) are configured dynamically via `ChannelModule` initialization, not environment variables.
+All channel credentials (Telegram, LINE, Facebook, Instagram, WhatsApp, Slack, Discord, Email, WebChat) are configured via the dashboard **Settings → Channels** page and stored in the database.
 
 ## Related
 
