@@ -119,12 +119,9 @@ UniCore returns `200 OK` immediately, as required by LINE (response must arrive 
 
 LINE verifies the webhook URL during setup by sending a request with an empty `events` array. UniCore handles this automatically — it logs the verification and returns `200 OK`.
 
-### Environment Variables
+### Configuration
 
-| Variable | Description |
-|----------|-------------|
-| `LINE_CHANNEL_SECRET` | LINE Channel Secret for signature verification |
-| `LINE_CHANNEL_ACCESS_TOKEN` | Access token for sending reply messages |
+LINE Channel Secret and Channel Access Token are configured via the dashboard **Settings → Channels** page.
 
 ---
 
