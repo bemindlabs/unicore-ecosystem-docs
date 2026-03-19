@@ -87,7 +87,7 @@ UniCore's AI engine supports multi-model conversations with context from your bu
 If the AI returns an error about missing provider keys, add your API key:
 
 1. Go to **Settings → AI → Providers**.
-2. Enter your `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`.
+2. Enter your OpenAI or Anthropic API key.
 3. Click **Save** and retry the chat.
 
 **OpenClaw agents**: For more advanced interactions, open the **Agents** section. UniCore auto-registers 9 default agents on startup (CRM agent, ERP agent, analytics agent, etc.). Each agent has a specialized system prompt and tool set. You can converse with individual agents or orchestrate multi-agent workflows.
