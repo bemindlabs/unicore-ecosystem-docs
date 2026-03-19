@@ -125,8 +125,6 @@ The following outbound connections are required:
 | Destination | Purpose |
 |-------------|---------|
 | `registry-1.docker.io` | Docker Hub image pulls |
-| `api.openai.com` | OpenAI API (if `OPENAI_API_KEY` is set) |
-| `api.anthropic.com` | Anthropic API (if `ANTHROPIC_API_KEY` is set) |
 | Your license server | License validation (Pro/Enterprise editions) |
 
 For air-gapped deployments, pre-pull images and provide a local AI model via Ollama.
