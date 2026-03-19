@@ -23,7 +23,7 @@ LINE sends webhook events to this URL whenever a user interacts with the connect
 
 Every request from LINE includes an `X-Line-Signature` header containing an HMAC-SHA256 digest of the raw request body, base64-encoded, signed with your LINE Channel Secret.
 
-UniCore validates this signature automatically when the `LINE_CHANNEL_SECRET` environment variable is configured. Requests with a missing or invalid signature return `403 Forbidden`.
+UniCore validates this signature automatically when the LINE Channel Secret is configured via dashboard Settings. Requests with a missing or invalid signature return `403 Forbidden`.
 
 **Validation algorithm**:
 
