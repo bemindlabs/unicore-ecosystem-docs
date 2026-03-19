@@ -51,7 +51,7 @@ Handles all business operations: CRM (contacts, lead scoring), product catalogue
 Orchestrates calls to multiple LLM providers (OpenAI, Anthropic). Manages model selection, prompt routing, and response streaming. Redis is used for caching model responses and managing rate-limit state.
 
 - **Build context**: `./unicore` — `services/ai-engine/Dockerfile`
-- **Key env**: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `REDIS_URL`
+- **Key env**: `REDIS_URL`
 - **Pro flags**: `ENABLE_ADVANCED_MODELS`, `ENABLE_FINE_TUNING`
 
 ### RAG Service (`unicore-rag`)
