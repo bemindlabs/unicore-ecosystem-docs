@@ -368,8 +368,6 @@ Loop types: `for_each`, `while`, `count`.
 | `KAFKA_BROKERS` | `localhost:9092` | Kafka broker addresses |
 | `OPENCLAW_GATEWAY_URL` | `http://openclaw:18790` | AI agent gateway |
 | `ERP_SERVICE_URL` | `http://erp:4100` | ERP service |
-| `TELEGRAM_BOT_TOKEN` | — | For Telegram notifications |
-| `LINE_CHANNEL_ACCESS_TOKEN` | — | For LINE notifications |
 
 ## Related
 
