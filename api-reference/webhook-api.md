@@ -235,7 +235,7 @@ curl -X POST "https://api.telegram.org/bot<BOT_TOKEN>/setWebhook" \
   -H "Content-Type: application/json" \
   -d '{
     "url": "https://unicore.bemind.tech/webhooks/telegram",
-    "secret_token": "<TELEGRAM_WEBHOOK_SECRET>",
+    "secret_token": "<your-webhook-secret>",
     "allowed_updates": ["message", "callback_query", "inline_query"]
   }'
 ```
