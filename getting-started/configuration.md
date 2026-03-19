@@ -136,24 +136,7 @@ For external managed services (e.g., AWS ElastiCache, Confluent Cloud), override
 
 ## Integrations (Pro Edition)
 
-Messaging channel integrations are enabled by providing the corresponding API credentials. These are optional — channels without credentials are simply inactive.
-
-```bash
-# Telegram Bot
-# TELEGRAM_BOT_TOKEN=1234567890:AAF...
-# TELEGRAM_WEBHOOK_SECRET=your-webhook-validation-secret
-
-# LINE Messaging API
-# LINE_CHANNEL_ID=1234567890
-# LINE_CHANNEL_SECRET=abc123...
-# LINE_CHANNEL_ACCESS_TOKEN=your-channel-access-token
-```
-
-To register a Telegram webhook after setting the token:
-
-```bash
-curl "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=https://your-domain.com/webhooks/telegram"
-```
+Messaging channel integrations are configured via the dashboard **Settings → Channels** page. Channel credentials (Telegram bot tokens, LINE channel secrets, etc.) are stored securely in the database and do not need to be set as environment variables.
 
 ---
 
