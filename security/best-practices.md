@@ -40,6 +40,15 @@ Use this checklist before going live. Items marked **[CRITICAL]** are non-negoti
 - [ ] Database backups configured and tested
 - [ ] Audit extension enabled (`pgaudit`) for compliance deployments
 
+### Application
+
+- [ ] **[CRITICAL]** Password registration enforces minimum 8 characters, at least one uppercase letter, and at least one number
+- [ ] AES-256-GCM encryption enabled for AI provider API keys (dedicated `ENCRYPTION_KEY` with random salt)
+- [ ] `.npmrc` contains `ignore-scripts=true` in all workspaces to prevent supply-chain attacks from postinstall scripts
+- [ ] `HEALTHCHECK` directive present in all NestJS Dockerfiles
+- [ ] JWT token blacklist via Redis — tokens are invalidated on logout
+- [ ] `X-Forwarded-For` set to `$remote_addr` in Nginx (prevents header spoofing from upstream proxies)
+
 ---
 
 ## Default Credentials to Rotate
