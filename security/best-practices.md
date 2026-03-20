@@ -149,7 +149,7 @@ UniCore runs behind Cloudflare. Recommended settings:
 
 ### Nginx Configuration Hardening
 
-The Nginx config lives at `unicore/nginx/default.conf`. Add these headers in the server block:
+The Nginx config lives at `unicore/nginx/default.conf`. The following hardening measures are already applied:
 
 ```nginx
 # Security headers
@@ -165,6 +165,13 @@ server_tokens off;
 
 # Limit request size (prevent large payload attacks)
 client_max_body_size 10m;
+
+# Rate limiting (applied at the Nginx layer, in addition to Cloudflare)
+# API endpoints: 30 requests/second burst
+# Auth endpoints: 5 requests/second (brute-force protection)
+
+# Anti-spoofing: set X-Forwarded-For to actual remote address
+proxy_set_header X-Forwarded-For $remote_addr;
 ```
 
 ### Internal Firewall Rules
