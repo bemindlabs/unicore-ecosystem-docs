@@ -52,7 +52,7 @@ graph TD
 
 | Model | Purpose | Key Fields |
 |-------|---------|-----------|
-| `User` | Platform users | `email` (unique), `role` (Role enum), `password` |
+| `User` | Platform users | `email` (unique), `role` (Role enum), `password`, has many `Session` and `Notification` |
 | `Session` | JWT sessions | `token`, `refreshToken`, `expiresAt`, `userId` FK |
 | `CustomDomain` | Tenant custom domains | `hostname` (unique), `tenantId`, `isVerified`, `allowedOrigins` |
 | `AuditLog` | Security audit trail | `userId`, `action`, `resource`, `resourceId`, `ip`, `success` |
