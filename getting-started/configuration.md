@@ -35,6 +35,9 @@ These variables have no sensible default and **must** be set before starting the
 | `JWT_SECRET` | `a1b2c3...` (32+ chars) | Secret key for signing JWT access tokens. Minimum 32 characters. Generate with `openssl rand -hex 32`. |
 | `BOOTSTRAP_SECRET` | `boot-secret-xyz` | Authorization header for the `/auth/provision-admin` wizard endpoint. Change before exposing publicly. |
 | `LICENSE_ADMIN_SECRET` | `lic-secret-xyz` | Admin secret for the license API service. |
+| `LICENSE_DB_PASSWORD` | `s3cureP@ss2!` | PostgreSQL password for the isolated license database (`unicore-license-db`). Separate from the main `POSTGRES_PASSWORD`. |
+| `UNICORE_PUBLIC_KEY` | (Ed25519 PEM) | Ed25519 public key used by the license server for verifying license key signatures. |
+| `UNICORE_PRIVATE_KEY` | (Ed25519 PEM) | Ed25519 private key used by the license server for signing license keys. Keep strictly confidential. |
 
 ---
 
@@ -131,6 +134,46 @@ These variables configure how application services connect to infrastructure. Th
 ```
 
 For external managed services (e.g., AWS ElastiCache, Confluent Cloud), override these values with the appropriate connection strings.
+
+---
+
+## Service-to-Service Communication
+
+```bash
+# Shared secret for X-Internal-Service header validation between microservices
+# INTERNAL_SERVICE_SECRET=your-internal-service-secret
+
+# URL of the UniCore Platform (public website) for callbacks
+# PLATFORM_URL=https://unicore.bemind.tech
+# PLATFORM_CALLBACK_SECRET=your-platform-callback-secret
+```
+
+`INTERNAL_SERVICE_SECRET` is used when services call each other internally (e.g., AI Engine fetching API keys from the API Gateway via `GET /api/v1/settings/ai-config/keys`). The receiving service validates the `X-Internal-Service` header against a whitelist.
+
+---
+
+## Demo Mode
+
+```bash
+# Enable demo mode — blocks write operations for non-OWNER users
+DEMO_MODE=true    # true | false (default: true in root compose)
+```
+
+When `DEMO_MODE=true`, all mutating API requests from users without the `OWNER` role are rejected. This is used for the public demo at `unicore-demo.bemind.tech`. Set to `false` for real deployments.
+
+---
+
+## Proxy Services
+
+```bash
+# ChatGPT-to-API proxy admin password
+# CHATGPT_PROXY_ADMIN_PASSWORD=your-proxy-admin-password
+
+# SSH proxy (Sshwifty) shared key for the web-based SSH terminal
+# SSH_PROXY_SHARED_KEY=your-ssh-proxy-key
+```
+
+The ChatGPT proxy (`unicore-chatgpt-proxy`) converts ChatGPT subscription access tokens into OpenAI-compatible API calls. The SSH proxy (`unicore-ssh-proxy`) provides a browser-based SSH terminal. Both services are bound to `127.0.0.1` and are not directly accessible from the internet.
 
 ---
 

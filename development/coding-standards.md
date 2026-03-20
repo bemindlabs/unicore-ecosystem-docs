@@ -6,25 +6,51 @@ This document defines the TypeScript coding conventions, linting rules, formatti
 
 ### Compiler Options
 
-All packages use TypeScript 5.5+ with strict mode enabled:
+All packages extend the shared base tsconfig at `packages/config/src/typescript/base.json`. NestJS services extend `packages/config/src/typescript/nest.json` which adds decorator support. TypeScript 5.5+ with strict mode is required.
+
+**Base config** (`packages/config/src/typescript/base.json`):
 
 ```json
 {
   "compilerOptions": {
-    "strict": true,
     "target": "ES2022",
-    "module": "commonjs",
     "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "incremental": true
   }
 }
+```
+
+**NestJS override** (`packages/config/src/typescript/nest.json`) adds:
+
+```json
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
+```
+
+Individual services extend `nest.json` and override only `outDir`, `baseUrl`, and `paths`.
 ```
 
 ### Type Conventions

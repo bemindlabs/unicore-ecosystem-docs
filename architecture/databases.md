@@ -59,6 +59,7 @@ graph TD
 | `Settings` | Key-value platform config | Single `default` row, `data` JSON blob |
 | `Task` | Task board items | `status`, `priority`, `labels`, `assigneeId`, `creatorId`, `progress` |
 | `ChatHistory` | Agent conversation history | `agentId`, `userId`, `messages` JSON, `channel`, `summary` |
+| `Notification` | User notification inbox | `userId` FK, `type` (info/warning/success/error), `title`, `message`, `read`, `link` |
 
 **Role enum**:
 ```

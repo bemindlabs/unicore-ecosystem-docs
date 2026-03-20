@@ -199,6 +199,157 @@ Valid roles: `OWNER`, `OPERATOR`.
 
 ---
 
+### GET /auth/profile
+
+Return the authenticated user's profile. Requires authentication. Equivalent to `GET /auth/me`.
+
+**Response** `200 OK`
+
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "email": "admin@unicore.dev",
+  "name": "Admin",
+  "role": "OWNER",
+  "createdAt": "2026-01-01T00:00:00.000Z"
+}
+```
+
+---
+
+### PATCH /auth/profile
+
+Update the authenticated user's profile. Requires authentication.
+
+**Request**
+
+```json
+{
+  "name": "Jane Smith",
+  "email": "jane@unicore.dev"
+}
+```
+
+Both fields are optional. `name` must be 2-100 characters. `email` must be a valid email address.
+
+**Response** `200 OK` — updated user object.
+
+---
+
+### PATCH /auth/password
+
+Change the authenticated user's password. Requires authentication.
+
+**Request**
+
+```json
+{
+  "currentPassword": "OldPassword1",
+  "newPassword": "NewPassword2",
+  "confirmPassword": "NewPassword2"
+}
+```
+
+Password rules: minimum 8 characters (max 128), at least one uppercase letter, one lowercase letter, and one digit. `confirmPassword` must match `newPassword`.
+
+**Response** `200 OK`
+
+```json
+{
+  "message": "Password changed successfully"
+}
+```
+
+---
+
+## Notifications
+
+Base path: `/api/v1/notifications`
+
+All notification endpoints require authentication via `Authorization: Bearer <token>`.
+
+### GET /api/v1/notifications
+
+List notifications for the authenticated user.
+
+**Query Parameters**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `page` | number | 1 | Page number |
+| `limit` | number | 20 | Items per page |
+
+**Response** `200 OK`
+
+```json
+{
+  "notifications": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440010",
+      "title": "New order received",
+      "body": "Order #1042 has been placed by Acme Corp.",
+      "read": false,
+      "createdAt": "2026-03-15T09:30:00.000Z"
+    }
+  ],
+  "total": 12,
+  "page": 1,
+  "limit": 20
+}
+```
+
+---
+
+### GET /api/v1/notifications/unread-count
+
+Return the number of unread notifications for the authenticated user.
+
+**Response** `200 OK`
+
+```json
+{
+  "count": 5
+}
+```
+
+---
+
+### PATCH /api/v1/notifications/read-all
+
+Mark all notifications as read for the authenticated user.
+
+**Response** `200 OK`
+
+```json
+{
+  "ok": true
+}
+```
+
+---
+
+### PATCH /api/v1/notifications/:id/read
+
+Mark a single notification as read.
+
+**Response** `200 OK`
+
+```json
+{
+  "ok": true
+}
+```
+
+---
+
+### DELETE /api/v1/notifications/:id
+
+Delete a single notification.
+
+**Response** `204 No Content`
+
+---
+
 ## Settings Endpoints
 
 Base path: `GET|PUT /api/v1/settings/:key`
