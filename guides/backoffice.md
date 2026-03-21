@@ -14,7 +14,7 @@ Backoffice UI → OpenClaw Gateway (WS :18789 / HTTP :18790) → Agent Registry 
 
 Navigate to `/backoffice` in the dashboard, or click the **Backoffice** link in the sidebar.
 
-- **URL:** `https://unicore-demo.bemind.tech/backoffice`
+- **URL:** `https://your-domain.example.com/backoffice`
 - The page uses a dedicated layout under `(backoffice)/backoffice/page.tsx`, separate from the main dashboard shell.
 - Agent data is fetched from `GET /api/proxy/openclaw/health/agents` and polled every 10 seconds for live updates.
 - If the API is unreachable, the UI falls back to locally cached agent data and displays a warning banner.
