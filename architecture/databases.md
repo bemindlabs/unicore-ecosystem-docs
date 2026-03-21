@@ -215,16 +215,16 @@ Inventory items at or below their reorder point. Polled by the ERP service to em
 
 ## Redis Usage
 
-The main Redis instance (`unicores-unicore-redis-1`, host port `6380`) is shared by multiple services. The license stack has its own isolated Redis (`unicores-unicore-license-redis-1`).
+The main Redis instance is shared by multiple services. The license stack has its own isolated Redis instance.
 
-| Service | Redis Usage | Key Patterns |
-|---------|------------|--------------|
-| API Gateway | JWT session cache, refresh token store | `session:<userId>`, `token:<jti>` |
-| AI Engine | Model response cache, rate limit state | `ai:cache:<hash>`, `ai:ratelimit:<key>` |
-| RAG Service | Embedding cache, job queue | `rag:embed:<hash>`, `rag:queue` |
-| OpenClaw Gateway | Agent state, connected client registry | `agent:<agentId>:state`, `clients:<sessionId>` |
-| Workflow Engine | Workflow instance state | `workflow:<instanceId>` |
-| License API | License validation cache (isolated Redis) | `license:<key>:valid`, `license:<key>:flags` |
+| Service | Redis Usage |
+|---------|------------|
+| API Gateway | JWT session cache, refresh token store |
+| AI Engine | Model response cache, rate limit state |
+| RAG Service | Embedding cache, job queue |
+| OpenClaw Gateway | Agent state, connected client registry |
+| Workflow Engine | Workflow instance state |
+| License API | License validation cache (isolated Redis instance) |
 
 ## Qdrant Vector Database
 
