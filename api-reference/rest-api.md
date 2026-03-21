@@ -113,7 +113,7 @@ Exchange a refresh token for a new access token.
   "expiresIn": 900,
   "user": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
-    "email": "admin@unicore.dev",
+    "email": "user@example.com",
     "name": "Admin",
     "role": "OWNER"
   }
