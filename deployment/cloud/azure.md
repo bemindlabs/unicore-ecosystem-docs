@@ -183,7 +183,7 @@ az postgres flexible-server create \
   --name unicore-postgres \
   --location eastus \
   --admin-user unicore \
-  --admin-password your-password \
+  --admin-password <db-password> \
   --sku-name Standard_D2s_v3 \
   --tier GeneralPurpose \
   --version 16 \
