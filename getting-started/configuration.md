@@ -123,14 +123,14 @@ These variables configure how application services connect to infrastructure. Th
 
 ```bash
 # Redis (session cache, rate limiting)
-# REDIS_URL=redis://unicore-redis:6379      # Internal Docker DNS
+# REDIS_URL=redis://<redis-host>:6379        # Default within Docker Compose internal network
 # External: redis://:<password>@<host>:6380  # If using external Redis
 
 # Qdrant vector database (used by RAG service)
-# QDRANT_URL=http://unicore-vectordb:6333
+# QDRANT_URL=http://<vectordb-host>:6333
 
 # Kafka event streaming (used by workflow engine)
-# KAFKA_BROKERS=unicore-kafka:9092
+# KAFKA_BROKERS=<kafka-host>:9092
 ```
 
 For external managed services (e.g., AWS ElastiCache, Confluent Cloud), override these values with the appropriate connection strings.
