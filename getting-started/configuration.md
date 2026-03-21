@@ -167,10 +167,10 @@ When `DEMO_MODE=true`, all mutating API requests from users without the `OWNER` 
 
 ```bash
 # ChatGPT-to-API proxy admin password
-# CHATGPT_PROXY_ADMIN_PASSWORD=your-proxy-admin-password
+# CHATGPT_PROXY_ADMIN_PASSWORD=<your-proxy-admin-password>
 
 # SSH proxy (Sshwifty) shared key for the web-based SSH terminal
-# SSH_PROXY_SHARED_KEY=your-ssh-proxy-key
+# SSH_PROXY_SHARED_KEY=<your-ssh-proxy-key>
 ```
 
 The ChatGPT proxy (`unicore-chatgpt-proxy`) converts ChatGPT subscription access tokens into OpenAI-compatible API calls. The SSH proxy (`unicore-ssh-proxy`) provides a browser-based SSH terminal. Both services are bound to `127.0.0.1` and are not directly accessible from the internet.
