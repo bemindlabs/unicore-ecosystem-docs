@@ -159,7 +159,7 @@ For external managed services (e.g., AWS ElastiCache, Confluent Cloud), override
 DEMO_MODE=true    # true | false (default: true in root compose)
 ```
 
-When `DEMO_MODE=true`, all mutating API requests from users without the `OWNER` role are rejected. This is used for the public demo at `unicore-demo.bemind.tech`. Set to `false` for real deployments.
+When `DEMO_MODE=true`, all mutating API requests from users without the `OWNER` role are rejected. This is useful for read-only demo environments. Set to `false` for real deployments.
 
 ---
 
