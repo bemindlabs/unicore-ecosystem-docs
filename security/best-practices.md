@@ -189,14 +189,14 @@ Configure your host firewall so that only ports 80 and 443 are reachable from th
 REVOKE CREATE ON SCHEMA public FROM PUBLIC;
 
 -- The application user should not have superuser privileges
-ALTER USER unicore NOSUPERUSER NOCREATEDB NOCREATEROLE;
+ALTER USER <db-user> NOSUPERUSER NOCREATEDB NOCREATEROLE;
 
 -- Create a read-only reporting user (for Finance reports, analytics)
-CREATE USER unicore_readonly WITH PASSWORD '...';
-GRANT CONNECT ON DATABASE unicore TO unicore_readonly;
-GRANT USAGE ON SCHEMA public TO unicore_readonly;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO unicore_readonly;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO unicore_readonly;
+CREATE USER <db-readonly-user> WITH PASSWORD '...';
+GRANT CONNECT ON DATABASE <database-name> TO <db-readonly-user>;
+GRANT USAGE ON SCHEMA public TO <db-readonly-user>;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO <db-readonly-user>;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO <db-readonly-user>;
 ```
 
 ### PostgreSQL Connection Encryption
