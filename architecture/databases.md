@@ -229,7 +229,7 @@ The main Redis instance is shared by multiple services. The license stack has it
 ## Qdrant Vector Database
 
 **Port**: `6333` (HTTP + gRPC)
-**Internal URL**: `http://<vectordb-service>:<port>`
+**Internal URL**: `http://<vectordb-host>:6333`
 **Volume**: `vectordb_data`
 
 Qdrant stores vector embeddings produced by the RAG service. Each knowledge base topic is stored as a named collection. The RAG service manages collection creation, document chunking, embedding generation, and similarity search queries.
