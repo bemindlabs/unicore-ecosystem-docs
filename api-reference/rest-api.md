@@ -169,7 +169,7 @@ Bootstrap the first admin user. Protected by a static `X-Bootstrap-Secret` heade
 **Headers**
 
 ```
-X-Bootstrap-Secret: unicore-bootstrap-secret-local
+X-Bootstrap-Secret: <your-bootstrap-secret>
 Content-Type: application/json
 ```
 
@@ -177,9 +177,9 @@ Content-Type: application/json
 
 ```json
 {
-  "email": "admin@unicore.dev",
+  "email": "user@example.com",
   "name": "Admin",
-  "password": "admin123",
+  "password": "YourPassword1",
   "role": "OWNER"
 }
 ```
@@ -191,7 +191,7 @@ Valid roles: `OWNER`, `OPERATOR`.
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
-  "email": "admin@unicore.dev",
+  "email": "user@example.com",
   "name": "Admin",
   "role": "OWNER"
 }
