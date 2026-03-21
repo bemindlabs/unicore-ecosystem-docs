@@ -141,7 +141,7 @@ CREATE DATABASE <erp-database-name> OWNER <db-user>;
 
 **ReportType enum**: `PROFIT_AND_LOSS`, `CASH_FLOW`, `BALANCE_SHEET`, `SALES_SUMMARY`, `INVENTORY_SUMMARY`, `EXPENSE_SUMMARY`, `ACCOUNTS_RECEIVABLE`, `ACCOUNTS_PAYABLE`, `CUSTOM`
 
-### 3. License Database (`unicore_license`) — License Schema
+### 3. License Database — License Schema
 
 **Schema file**: `unicore-license/services/license-api/prisma/schema.prisma`
 **Services**: License API (isolated stack — separate PostgreSQL + Redis)

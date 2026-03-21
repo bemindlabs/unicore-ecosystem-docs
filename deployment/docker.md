@@ -16,7 +16,7 @@ Docker Compose is the primary and recommended deployment method for UniCore. The
 
 | File | Purpose |
 |------|---------|
-| `/var/platforms/unicores/docker-compose.yml` | **Production** — full stack, all Pro flags, `UNICORE_EDITION: full` |
+| `docker-compose.yml` (root workspace) | **Production** — full stack, all Pro flags, `UNICORE_EDITION: full` |
 | `unicore/docker-compose.yml` | Community dev — `UNICORE_EDITION: community`, no Pro flags |
 | `unicore-pro/docker-compose.yml` | Pro overlay — service overrides only, no new containers |
 
