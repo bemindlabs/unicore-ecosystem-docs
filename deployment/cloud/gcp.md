@@ -171,7 +171,7 @@ gcloud sql databases create unicore_erp \
 
 gcloud sql users create unicore \
   --instance=unicore-postgres \
-  --password=your-password
+  --password=<db-password>
 ```
 
 Use the **Cloud SQL Auth Proxy** sidecar in GKE pods for secure connectivity:
