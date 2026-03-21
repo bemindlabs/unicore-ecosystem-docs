@@ -275,14 +275,14 @@ sudo lsof -i :4000
 Ensure PostgreSQL container is healthy before running `prisma db push`:
 
 ```bash
-docker exec unicores-unicore-postgres-1 pg_isready -U unicore
+docker compose --profile apps exec unicore-postgres pg_isready -U unicore
 ```
 
 ### Prisma schema out of sync
 
 ```bash
-docker exec unicores-unicore-api-gateway-1 npx prisma db push --accept-data-loss
-docker exec unicores-unicore-erp-1 npx prisma db push --accept-data-loss
+docker compose --profile apps exec unicore-api-gateway npx prisma db push --accept-data-loss
+docker compose --profile apps exec unicore-erp npx prisma db push --accept-data-loss
 ```
 
 ---
