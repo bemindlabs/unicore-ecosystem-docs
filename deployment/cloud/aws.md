@@ -140,7 +140,7 @@ aws rds create-db-instance \
   --engine postgres \
   --engine-version 16 \
   --master-username unicore \
-  --master-user-password your-password \
+  --master-user-password <db-password> \
   --allocated-storage 100 \
   --storage-type gp3 \
   --multi-az \
