@@ -208,9 +208,9 @@ docker compose --profile apps stop unicore-dashboard
 Nginx is the reverse proxy routing all traffic to internal services:
 
 ```
-Cloudflare (unicore.bemind.tech)
+Your Domain (via SSL termination)
   → Nginx Proxy Manager (:80)
-    → unicores-unicore-nginx-1 (:80)
+    → unicore-nginx (:80)
       → Dashboard    /:3000
       → API Gateway  /api/, /auth/, /webhooks/ :4000
       → OpenClaw     /ws  :18789 (WebSocket)
@@ -220,7 +220,7 @@ The Nginx config lives at `unicore/nginx/default.conf`. After editing:
 
 ```bash
 # Reload nginx config (no downtime)
-docker exec unicores-unicore-nginx-1 nginx -s reload
+docker compose --profile apps exec unicore-nginx nginx -s reload
 
 # Or restart the container
 docker compose --profile apps restart unicore-nginx
