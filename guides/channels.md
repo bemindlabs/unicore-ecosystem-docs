@@ -88,10 +88,10 @@ The webhook validates `X-Line-Signature` using HMAC-SHA256 with the channel secr
   "type": "whatsapp",
   "channelId": "whatsapp-main",
   "displayName": "WhatsApp",
-  "accessToken": "your-access-token",
-  "phoneNumberId": "your-phone-number-id",
-  "businessAccountId": "your-business-account-id",
-  "verifyToken": "your-verify-token"
+  "accessToken": "<your-whatsapp-access-token>",
+  "phoneNumberId": "<your-phone-number-id>",
+  "businessAccountId": "<your-business-account-id>",
+  "verifyToken": "<your-verify-token>"
 }
 ```
 
