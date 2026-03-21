@@ -141,11 +141,11 @@ For external managed services (e.g., AWS ElastiCache, Confluent Cloud), override
 
 ```bash
 # Shared secret for X-Internal-Service header validation between microservices
-# INTERNAL_SERVICE_SECRET=your-internal-service-secret
+# INTERNAL_SERVICE_SECRET=<your-internal-service-secret>
 
 # URL of the UniCore Platform (public website) for callbacks
-# PLATFORM_URL=https://your-domain.example.com
-# PLATFORM_CALLBACK_SECRET=your-platform-callback-secret
+# PLATFORM_URL=https://<your-domain>
+# PLATFORM_CALLBACK_SECRET=<your-platform-callback-secret>
 ```
 
 `INTERNAL_SERVICE_SECRET` is used when services call each other internally (e.g., AI Engine fetching API keys from the API Gateway via `GET /api/v1/settings/ai-config/keys`). The receiving service validates the `X-Internal-Service` header against a whitelist.
