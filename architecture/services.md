@@ -58,7 +58,7 @@ Orchestrates calls to multiple LLM providers (OpenAI, Anthropic). Manages model 
 Manages the knowledge base for retrieval-augmented generation. Accepts documents, chunks and embeds them, stores vectors in Qdrant, and answers semantic search queries. Redis is used for embedding cache and job queuing.
 
 - **Build context**: `./unicore` — `services/rag/Dockerfile`
-- **Key env**: `QDRANT_URL` (`http://unicore-vectordb:6333`), `REDIS_URL`
+- **Key env**: `QDRANT_URL` (`http://<vectordb-host>:6333`), `REDIS_URL`
 
 ### Bootstrap Service (`unicore-bootstrap`)
 Provides the first-run setup wizard. Accepts the bootstrap secret for initial admin provisioning, configures the platform settings, and coordinates with the License API to validate and bind a license on first launch. Wizard lock state is stored as a settings key in PostgreSQL.
