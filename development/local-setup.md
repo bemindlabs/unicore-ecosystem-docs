@@ -60,18 +60,18 @@ nano .env
 
 ```bash
 # Database (matches Docker Compose defaults)
-DATABASE_URL="postgresql://unicore:unicore@localhost:5433/unicore"
-ERP_DATABASE_URL="postgresql://unicore:unicore@localhost:5433/unicore_erp"
+DATABASE_URL="postgresql://<db-user>:<db-password>@localhost:5433/unicore"
+ERP_DATABASE_URL="postgresql://<db-user>:<db-password>@localhost:5433/unicore_erp"
 
 # Redis
 REDIS_URL="redis://localhost:6380"
 
 # JWT
-JWT_SECRET="dev-jwt-secret-change-in-production"
-JWT_REFRESH_SECRET="dev-refresh-secret-change-in-production"
+JWT_SECRET="<your-jwt-secret-min-32-chars>"
+JWT_REFRESH_SECRET="<your-refresh-secret-min-32-chars>"
 
 # Bootstrap
-BOOTSTRAP_SECRET="unicore-bootstrap-secret-local"
+BOOTSTRAP_SECRET="<your-bootstrap-secret>"
 
 # AI provider keys are configured via dashboard Settings → AI → Providers
 
