@@ -323,8 +323,7 @@ For Enterprise deployments, use HashiCorp Vault for secret injection:
 ### Updating UniCore
 
 ```bash
-cd /var/platforms/unicores
-
+# From the root workspace directory
 # Pull latest code
 git pull origin main
 git submodule update --remote --merge
@@ -334,8 +333,8 @@ docker compose --profile apps --profile workflows build --no-cache
 docker compose --profile apps --profile workflows up -d
 
 # Re-push schemas after updates
-docker exec unicores-unicore-api-gateway-1 npx prisma db push --accept-data-loss
-docker exec unicores-unicore-erp-1 npx prisma db push --accept-data-loss
+docker compose --profile apps exec unicore-api-gateway npx prisma db push --accept-data-loss
+docker compose --profile apps exec unicore-erp npx prisma db push --accept-data-loss
 ```
 
 ### Maintenance Window
