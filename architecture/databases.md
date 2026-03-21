@@ -248,12 +248,12 @@ UniCore uses `prisma db push` (schema introspection mode) instead of migration f
 
 ```bash
 # Push API Gateway schema (main DB)
-docker exec unicores-unicore-api-gateway-1 npx prisma db push --accept-data-loss
+docker exec <api-gateway-container> npx prisma db push --accept-data-loss
 
-# Push ERP schema (unicore_erp DB — must exist first)
-docker exec unicores-unicore-postgres-1 psql -U unicore -d postgres \
-  -c "CREATE DATABASE unicore_erp OWNER unicore;"
-docker exec unicores-unicore-erp-1 npx prisma db push --accept-data-loss
+# Push ERP schema (ERP DB — must exist first)
+docker exec <postgres-container> psql -U <db-user> -d postgres \
+  -c "CREATE DATABASE <erp-database-name> OWNER <db-user>;"
+docker exec <erp-container> npx prisma db push --accept-data-loss
 
 # Restart services after schema changes
 docker compose --profile apps restart unicore-api-gateway unicore-erp
