@@ -195,7 +195,7 @@ Geek Edition is configured via `~/.unicore/config.yaml`:
 
 ```yaml
 host: http://localhost:4000
-email: admin@unicore.dev
+email: <your-admin-email>
 token: <jwt-token>  # Set automatically on login
 
 tui:
