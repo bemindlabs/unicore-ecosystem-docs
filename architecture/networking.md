@@ -188,7 +188,7 @@ All Nginx proxy locations forward these headers to downstream services:
 |--------|-------|
 | `Host` | `$host` |
 | `X-Real-IP` | `$remote_addr` |
-| `X-Forwarded-For` | `$proxy_add_x_forwarded_for` |
+| `X-Forwarded-For` | `$remote_addr` |
 | `X-Forwarded-Proto` | `$scheme` |
 
 These headers allow backend services to log the real client IP and detect whether the original request was HTTPS.
