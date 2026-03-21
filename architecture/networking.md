@@ -47,7 +47,7 @@ Config file location: `unicore/nginx/default.conf` (mounted read-only into the c
 |-------------|----------|-------|
 | `/` (catch-all) | `<platform-service>:<port>` | Public website — landing, pricing, showcases |
 
-**Server block: `unicore-demo.bemind.tech`** (dashboard + API)
+**Server block: `your-domain.example.com`** (dashboard + API)
 
 | Path pattern | Upstream | Notes |
 |-------------|----------|-------|

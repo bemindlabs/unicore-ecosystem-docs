@@ -70,8 +70,6 @@ BOOTSTRAP_SECRET=your-bootstrap-secret
 ### 2. Start All Services
 
 ```bash
-cd /var/platforms/unicores
-
 # Start application services and workflows
 docker compose --profile apps --profile workflows up -d
 ```
@@ -79,16 +77,18 @@ docker compose --profile apps --profile workflows up -d
 ### 3. Database Setup
 
 ```bash
-# Create ERP database
-docker exec unicores-unicore-postgres-1 psql -U unicore -d postgres \
+# Create ERP database (container name depends on directory name used to clone)
+docker exec <postgres-container-name> psql -U unicore -d postgres \
   -c "CREATE DATABASE unicore_erp OWNER unicore;"
 
 # Push auth + settings schema
-docker exec unicores-unicore-api-gateway-1 npx prisma db push --accept-data-loss
+docker exec <api-gateway-container-name> npx prisma db push --accept-data-loss
 
 # Push ERP schema
-docker exec unicores-unicore-erp-1 npx prisma db push --accept-data-loss
+docker exec <erp-container-name> npx prisma db push --accept-data-loss
 ```
+
+> Container names are derived from the directory name of the root workspace. If you cloned into `unicore-ecosystem/`, containers will be named `unicore-ecosystem-unicore-<service>-1`.
 
 ### 4. Restart Services
 
