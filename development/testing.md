@@ -429,7 +429,7 @@ export class LoginPage {
   }
 
   async loginAsAdmin(): Promise<void> {
-    await this.login('admin@unicore.dev', 'admin123');
+    await this.login('test@example.com', 'testpassword123');
   }
 }
 ```
