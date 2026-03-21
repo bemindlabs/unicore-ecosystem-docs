@@ -306,9 +306,9 @@ az ad app list --display-name "UniCore" \
 ```bash
 # Set environment variables in your compose or Kubernetes secret:
 SSO_PROVIDER=azure
-SSO_TENANT_ID=your-tenant-id
-SSO_CLIENT_ID=your-app-client-id
-SSO_CLIENT_SECRET=your-app-client-secret
+SSO_TENANT_ID=<azure-tenant-id>
+SSO_CLIENT_ID=<azure-app-client-id>
+SSO_CLIENT_SECRET=<azure-app-client-secret>
 SSO_REDIRECT_URI=https://unicore.example.com/auth/sso/callback
 ```
 

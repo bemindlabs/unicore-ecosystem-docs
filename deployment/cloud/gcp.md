@@ -35,7 +35,7 @@ Managed Services
 
 ```bash
 gcloud compute instances create unicore-prod \
-  --project=your-project-id \
+  --project=<your-project-id> \
   --zone=us-central1-a \
   --machine-type=n2-standard-8 \
   --image-family=ubuntu-2204-lts \
@@ -76,7 +76,7 @@ Follow the standard [Docker Compose deployment guide](../docker.md).
 # Reserve a static IP
 gcloud compute addresses create unicore-ip \
   --global \
-  --project=your-project-id
+  --project=<your-project-id>
 
 # Create a Google-managed SSL certificate
 gcloud compute ssl-certificates create unicore-ssl \
@@ -131,7 +131,7 @@ echo "/dev/sdb /data ext4 defaults 0 2" | sudo tee -a /etc/fstab
 # GKE Autopilot (recommended — fully managed nodes)
 gcloud container clusters create-auto unicore \
   --location=us-central1 \
-  --project=your-project-id
+  --project=<your-project-id>
 
 # Or GKE Standard (more control)
 gcloud container clusters create unicore \
@@ -141,12 +141,12 @@ gcloud container clusters create unicore \
   --enable-autoscaling \
   --min-nodes=2 \
   --max-nodes=10 \
-  --project=your-project-id
+  --project=<your-project-id>
 
 # Get credentials
 gcloud container clusters get-credentials unicore \
   --zone=us-central1-a \
-  --project=your-project-id
+  --project=<your-project-id>
 ```
 
 ### Managed Services Integration
@@ -161,7 +161,7 @@ gcloud sql instances create unicore-postgres \
   --availability-type=REGIONAL \
   --storage-type=SSD \
   --storage-size=100GB \
-  --project=your-project-id
+  --project=<your-project-id>
 
 gcloud sql databases create unicore \
   --instance=unicore-postgres
@@ -195,7 +195,7 @@ gcloud redis instances create unicore-redis \
   --region=us-central1 \
   --redis-version=redis_7_0 \
   --tier=STANDARD_HA \
-  --project=your-project-id
+  --project=<your-project-id>
 ```
 
 Set `REDIS_URL` to the Memorystore host IP and port.
@@ -232,7 +232,7 @@ helm install unicore unicore/unicore \
   --set postgres.external.host=127.0.0.1 \
   --set postgres.external.port=5432 \
   --set redis.external.enabled=true \
-  --set redis.external.host=10.x.x.x \
+  --set redis.external.host=<redis-host-ip> \
   --set ingress.host=unicore.example.com \
   --set license.key=UC-XXXX-XXXX-XXXX-XXXX
 ```
@@ -241,7 +241,7 @@ helm install unicore unicore/unicore \
 
 ```bash
 # Create bucket for backups
-gsutil mb -p your-project-id \
+gsutil mb -p <your-project-id> \
   -c STANDARD \
   -l us-central1 \
   gs://unicore-backups-yourorg/
@@ -262,16 +262,16 @@ gsutil versioning set on gs://unicore-backups-yourorg/
 # Create service account for UniCore
 gcloud iam service-accounts create unicore-sa \
   --display-name="UniCore Service Account" \
-  --project=your-project-id
+  --project=<your-project-id>
 
 # Grant Cloud SQL access
-gcloud projects add-iam-policy-binding your-project-id \
-  --member="serviceAccount:unicore-sa@your-project-id.iam.gserviceaccount.com" \
+gcloud projects add-iam-policy-binding <your-project-id> \
+  --member="serviceAccount:unicore-sa@<your-project-id>.iam.gserviceaccount.com" \
   --role="roles/cloudsql.client"
 
 # Grant GCS access for backups
-gcloud projects add-iam-policy-binding your-project-id \
-  --member="serviceAccount:unicore-sa@your-project-id.iam.gserviceaccount.com" \
+gcloud projects add-iam-policy-binding <your-project-id> \
+  --member="serviceAccount:unicore-sa@<your-project-id>.iam.gserviceaccount.com" \
   --role="roles/storage.objectAdmin"
 ```
 
