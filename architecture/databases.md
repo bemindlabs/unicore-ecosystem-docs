@@ -45,7 +45,7 @@ graph TD
 
 ## PostgreSQL Schemas
 
-### 1. Main Database (`unicore`) — API Gateway Schema
+### 1. Main Database — API Gateway Schema
 
 **Schema file**: `unicore/services/api-gateway/src/prisma/schema.prisma`
 **Services**: API Gateway, Bootstrap
