@@ -7,8 +7,8 @@ OpenClaw is the multi-agent WebSocket hub that coordinates communication between
 | `18789` | WebSocket server (agent connections) |
 | `18790` | HTTP server (health checks only) |
 
-**WebSocket URL**: `ws://localhost:18789`
-**Production**: `wss://unicore.bemind.tech/ws` (proxied by Nginx)
+**WebSocket URL (local)**: `ws://localhost:18789`
+**Production**: `wss://unicore.example.com/ws` (proxied by Nginx)
 
 ---
 
