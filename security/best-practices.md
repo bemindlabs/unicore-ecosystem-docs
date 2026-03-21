@@ -245,10 +245,10 @@ unicore-redis:
   command: redis-server --requirepass ${REDIS_PASSWORD}
 ```
 
-Update `REDIS_URL` in all services:
+Update `REDIS_URL` in all services to include the password:
 
 ```env
-REDIS_URL=redis://:your-strong-redis-password@localhost:6380
+REDIS_URL=redis://:<redis-password>@<redis-host>:<redis-port>
 ```
 
 ---

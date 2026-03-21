@@ -139,7 +139,7 @@ Set the secret token when registering the webhook URL with Telegram:
 
 ```
 https://api.telegram.org/bot<token>/setWebhook
-  ?url=https://unicore.bemind.tech/webhooks/telegram
+  ?url=https://unicore.example.com/webhooks/telegram
   &secret_token=<your-webhook-secret>
 ```
 
