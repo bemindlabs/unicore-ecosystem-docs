@@ -217,7 +217,8 @@ aws s3api put-bucket-versioning \
   --versioning-configuration Status=Enabled
 
 # Automated PostgreSQL backup (cron job)
-0 2 * * * docker exec unicores-unicore-postgres-1 \
+# Replace <postgres-container> with your actual container name
+0 2 * * * docker exec <postgres-container> \
   pg_dump -U unicore unicore | gzip | \
   aws s3 cp - s3://unicore-backups-yourorg/postgres/unicore-$(date +%Y%m%d).sql.gz
 ```
