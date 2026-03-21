@@ -135,7 +135,7 @@ sudo mkdir -p /etc/unicore/ssl
 sudo openssl req -x509 -nodes -days 3650 -newkey rsa:4096 \
   -keyout /etc/unicore/ssl/unicore.key \
   -out /etc/unicore/ssl/unicore.crt \
-  -subj "/C=TH/ST=Bangkok/O=YourOrg/CN=unicore.local"
+  -subj "/C=<country-code>/ST=<state>/O=<your-org>/CN=unicore.local"
 ```
 
 Mount the certs into the Nginx container via your docker-compose override.
