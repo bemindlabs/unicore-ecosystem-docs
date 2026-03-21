@@ -113,8 +113,9 @@ cp .env.example .env
 docker compose --profile apps up -d
 
 # Push database schemas
-docker exec unicore-api-gateway-1 npx prisma db push --accept-data-loss
-docker exec unicore-erp-1 npx prisma db push --accept-data-loss
+# Container names are prefixed by your clone directory name (e.g. unicore-unicore-api-gateway-1)
+docker exec <workspace>-unicore-api-gateway-1 npx prisma db push --accept-data-loss
+docker exec <workspace>-unicore-erp-1 npx prisma db push --accept-data-loss
 
 # Provision admin user
 curl -s http://localhost:4000/auth/provision-admin -X POST \
