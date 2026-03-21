@@ -45,17 +45,17 @@ Config file location: `unicore/nginx/default.conf` (mounted read-only into the c
 
 | Path pattern | Upstream | Notes |
 |-------------|----------|-------|
-| `/` (catch-all) | `unicore-platform:3100` | Public website — landing, pricing, showcases |
+| `/` (catch-all) | `<platform-service>:<port>` | Public website — landing, pricing, showcases |
 
 **Server block: `unicore-demo.bemind.tech`** (dashboard + API)
 
 | Path pattern | Upstream | Notes |
 |-------------|----------|-------|
-| `/api/` | `unicore-api-gateway:4000` | All REST API v1 calls |
-| `/auth/` | `unicore-api-gateway:4000` | Login, logout, token refresh |
-| `/webhooks/` | `unicore-api-gateway:4000` | Channel webhook ingestion |
-| `/ws` | `unicore-openclaw-gateway:18789` | WebSocket upgrade |
-| `/` (catch-all) | `unicore-dashboard:3000` | All other pages |
+| `/api/` | `<api-gateway-service>:<port>` | All REST API v1 calls |
+| `/auth/` | `<api-gateway-service>:<port>` | Login, logout, token refresh |
+| `/webhooks/` | `<api-gateway-service>:<port>` | Channel webhook ingestion |
+| `/ws` | `<openclaw-service>:<port>` | WebSocket upgrade |
+| `/` (catch-all) | `<dashboard-service>:<port>` | All other pages |
 
 ### WebSocket Configuration
 
