@@ -243,7 +243,7 @@ When a workflow definition matches an incoming event, one or more action executo
 
 ## Zookeeper
 
-Zookeeper (`unicores-unicore-zookeeper-1`) is the coordination layer for the single-node Kafka broker. It manages broker registration, topic metadata, and consumer group offsets.
+Zookeeper (compose service: `unicore-zookeeper`) is the coordination layer for the single-node Kafka broker. It manages broker registration, topic metadata, and consumer group offsets.
 
 | Parameter | Value |
 |-----------|-------|
