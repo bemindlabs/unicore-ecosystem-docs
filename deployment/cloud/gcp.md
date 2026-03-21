@@ -95,7 +95,7 @@ gcloud compute addresses describe unicore-ip --global --format="value(address)"
 
 # Create A record
 gcloud dns record-sets create unicore.example.com. \
-  --zone=your-dns-zone \
+  --zone=<your-dns-zone> \
   --type=A \
   --ttl=300 \
   --rrdatas=YOUR_IP
