@@ -211,11 +211,11 @@ DATABASE_URL="postgresql://<db-user>:<db-password>@<db-host>:<db-port>/<database
 
 ```bash
 # Encrypted backup
-pg_dump -U unicore unicore | \
-  gpg --symmetric --cipher-algo AES256 --output unicore_$(date +%Y%m%d).sql.gpg
+pg_dump -U <db-user> <database-name> | \
+  gpg --symmetric --cipher-algo AES256 --output backup_$(date +%Y%m%d).sql.gpg
 
 # Restore
-gpg --decrypt unicore_20260317.sql.gpg | psql -U unicore unicore
+gpg --decrypt backup_$(date +%Y%m%d).sql.gpg | psql -U <db-user> <database-name>
 ```
 
 ---
