@@ -29,10 +29,9 @@ NPM manages the external proxy hosts for both subdomains:
 
 | Setting | Value |
 |---------|-------|
-| Admin UI | `http://localhost:81` |
-| Credentials | `info@bemind.tech` / `unicore123` |
-| Proxy target (`unicore.bemind.tech`) | `unicores-unicore-nginx-1:80` |
-| Proxy target (`unicore-demo.bemind.tech`) | `unicores-unicore-nginx-1:80` |
+| Admin UI | Access NPM admin on port 81 (configure credentials on first login) |
+| Proxy target (`unicore.bemind.tech`) | `<nginx-container>:80` |
+| Proxy target (`unicore-demo.bemind.tech`) | `<nginx-container>:80` |
 
 Both proxy hosts are pointed at the internal Nginx container by service DNS name. NPM and the Nginx container share the external `nginx-proxy` Docker network.
 
