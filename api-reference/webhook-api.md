@@ -138,7 +138,7 @@ Telegram supports an optional `X-Telegram-Bot-Api-Secret-Token` header. When a T
 Set the secret token when registering the webhook URL with Telegram:
 
 ```
-https://api.telegram.org/bot<token>/setWebhook
+https://api.telegram.org/bot<BOT_TOKEN>/setWebhook
   ?url=https://unicore.example.com/webhooks/telegram
   &secret_token=<your-webhook-secret>
 ```
