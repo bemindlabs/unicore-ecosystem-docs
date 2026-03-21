@@ -6,27 +6,27 @@ UniCore uses three database technologies: **PostgreSQL 16** for relational data 
 
 ```mermaid
 graph TD
-  subgraph postgres [PostgreSQL — unicores-unicore-postgres-1 :5433]
-    DB1[(unicore<br/>main DB)]
-    DB2[(unicore_erp<br/>ERP DB)]
+  subgraph postgres [PostgreSQL — main instance]
+    DB1[(main DB)]
+    DB2[(ERP DB)]
   end
 
-  subgraph licensePostgres [PostgreSQL — unicores-unicore-license-db-1]
-    DB3[(unicore_license<br/>license DB)]
+  subgraph licensePostgres [PostgreSQL — license instance]
+    DB3[(license DB)]
   end
 
-  subgraph redis [Redis — unicores-unicore-redis-1 :6380]
+  subgraph redis [Redis — main instance]
     R1[Sessions & JWT cache]
     R2[AI Engine response cache]
     R3[OpenClaw agent state]
     R4[RAG embedding cache]
   end
 
-  subgraph licenseRedis [Redis — unicores-unicore-license-redis-1]
+  subgraph licenseRedis [Redis — license instance]
     R5[License validation cache]
   end
 
-  subgraph qdrant [Qdrant — unicores-unicore-vectordb-1 :6333]
+  subgraph qdrant [Qdrant — vector database]
     Q1[Document embeddings]
     Q2[Knowledge base collections]
   end
