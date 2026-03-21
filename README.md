@@ -93,7 +93,7 @@ The UniCore platform is built with:
 ## Quick Links
 
 - **Website**: [unicore.bemind.tech](https://unicore.bemind.tech)
-- **Dashboard**: [unicore-demo.bemind.tech](https://unicore-demo.bemind.tech)
+- **Demo**: Available upon request — contact [info@bemind.tech](mailto:info@bemind.tech)
 - **Main Repo**: [unicore](https://github.com/bemindlabs/unicore)
 - **Issues**: [GitHub Issues](https://github.com/bemindlabs/unicore-ecosystem-docs/issues)
 - **Wiki**: [GitHub Wiki](https://github.com/bemindlabs/unicore-ecosystem-docs/wiki)

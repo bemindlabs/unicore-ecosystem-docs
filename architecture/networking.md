@@ -76,10 +76,10 @@ The dashboard also uses HTTP upgrade headers on the catch-all `/` location to su
 ### Upstream Definitions
 
 ```nginx
-upstream dashboard    { server unicore-dashboard:3000; }
-upstream platform     { server unicore-platform:3100; }
-upstream api          { server unicore-api-gateway:4000; }
-upstream openclaw_ws  { server unicore-openclaw-gateway:18789; }
+upstream dashboard    { server <dashboard-service>:<port>; }
+upstream platform     { server <platform-service>:<port>; }
+upstream api          { server <api-gateway-service>:<port>; }
+upstream openclaw_ws  { server <openclaw-service>:<port>; }
 ```
 
 Nginx resolves these names via Docker's internal DNS using service names defined in `docker-compose.yml`.
