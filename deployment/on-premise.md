@@ -118,12 +118,12 @@ Nginx Proxy Manager (NPM) runs on port 81 and handles SSL termination via Let's 
 2. Default credentials: `admin@example.com` / `changeme` (change immediately)
 3. Add a proxy host for `unicore.yourdomain.com`
 4. Enable SSL and request a Let's Encrypt certificate
-5. Forward to `unicores-unicore-nginx-1:80`
+5. Forward to the unicore-nginx container (e.g. `<workspace>-unicore-nginx-1:80`)
 
 ```
 # NPM setup for UniCore
 Proxy Host: unicore.yourdomain.com
-Forward to: http://unicores-unicore-nginx-1:80
+Forward to: http://<nginx-container>:80
 SSL: Let's Encrypt (auto-renew enabled)
 ```
 
