@@ -69,7 +69,7 @@ The webhook validates `X-Line-Signature` using HMAC-SHA256 with the channel secr
   "channelId": "slack-support",
   "displayName": "Slack Support",
   "botToken": "xoxb-...",
-  "signingSecret": "your-signing-secret",
+  "signingSecret": "<your-slack-signing-secret>",
   "defaultChannel": "#support"
 }
 ```
