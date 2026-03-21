@@ -51,7 +51,6 @@ All packages extend the shared base tsconfig at `packages/config/src/typescript/
 ```
 
 Individual services extend `nest.json` and override only `outDir`, `baseUrl`, and `paths`.
-```
 
 ### Type Conventions
 
