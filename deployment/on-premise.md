@@ -209,18 +209,20 @@ sudo systemctl start docker
 
 ### Volume Backup
 
+Replace `<postgres-container>` and `<qdrant-container>` with your actual container names (derived from the workspace directory name).
+
 ```bash
 # Backup PostgreSQL (daily, via cron)
-0 2 * * * docker exec unicores-unicore-postgres-1 \
+0 2 * * * docker exec <postgres-container> \
   pg_dumpall -U unicore | gzip > /backups/postgres/unicore-$(date +%Y%m%d).sql.gz
 
 # Backup PostgreSQL ERP database
-0 2 * * * docker exec unicores-unicore-postgres-1 \
+0 2 * * * docker exec <postgres-container> \
   pg_dump -U unicore unicore_erp | gzip > /backups/postgres/unicore-erp-$(date +%Y%m%d).sql.gz
 
 # Backup Qdrant vectors
 0 3 * * * docker run --rm \
-  --volumes-from unicores-unicore-vectordb-1 \
+  --volumes-from <qdrant-container> \
   -v /backups/qdrant:/backup \
   busybox tar czf /backup/qdrant-$(date +%Y%m%d).tar.gz /qdrant/storage
 
@@ -232,11 +234,11 @@ sudo systemctl start docker
 
 ```bash
 # Restore PostgreSQL
-docker exec -i unicores-unicore-postgres-1 \
+docker exec -i <postgres-container> \
   psql -U unicore < /backups/postgres/unicore-20260301.sql
 
 # Restore ERP database
-docker exec -i unicores-unicore-postgres-1 \
+docker exec -i <postgres-container> \
   psql -U unicore unicore_erp < /backups/postgres/unicore-erp-20260301.sql
 ```
 
