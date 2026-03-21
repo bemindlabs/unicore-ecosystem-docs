@@ -82,7 +82,7 @@ LICENSE_ADMIN_SECRET=<your-license-admin-secret>
 
 ```bash
 # URL the browser uses to reach the API (via nginx proxy in production)
-NEXT_PUBLIC_API_URL=https://your-domain.example.com
+NEXT_PUBLIC_API_URL=https://<your-domain>
 
 # For local development without nginx, point directly to the gateway:
 # NEXT_PUBLIC_API_URL=http://localhost:3000    # routed through Next.js proxy
