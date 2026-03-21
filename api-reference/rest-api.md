@@ -208,7 +208,7 @@ Return the authenticated user's profile. Requires authentication. Equivalent to 
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
-  "email": "admin@unicore.dev",
+  "email": "user@example.com",
   "name": "Admin",
   "role": "OWNER",
   "createdAt": "2026-01-01T00:00:00.000Z"
