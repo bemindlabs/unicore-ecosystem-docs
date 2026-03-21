@@ -230,7 +230,7 @@ docker compose --profile apps restart unicore-nginx
 To run only the community services (no Pro flags):
 
 ```bash
-cd /var/platforms/unicores/unicore
+cd unicore/
 
 docker compose --profile apps up -d
 ```
