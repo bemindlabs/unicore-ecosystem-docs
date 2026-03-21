@@ -204,7 +204,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO <db-readonly
 Enable `sslmode=require` in the `DATABASE_URL`:
 
 ```env
-DATABASE_URL="postgresql://unicore:password@localhost:5433/unicore?sslmode=require"
+DATABASE_URL="postgresql://<db-user>:<db-password>@<db-host>:<db-port>/<database-name>?sslmode=require"
 ```
 
 ### Backup Encryption
