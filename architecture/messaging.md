@@ -187,8 +187,8 @@ sequenceDiagram
   KF-->>WF: consume order.created (consumer group: workflow-consumer-group)
   WF->>WF: deserialize envelope + validate payload
   WF->>WF: match against registered workflow definitions
-  WF->>OC: call-agent action (WebSocket ws://unicore-openclaw-gateway:18789)
-  WF->>ERP2: update-erp action (HTTP http://unicore-erp:4100)
+  WF->>OC: call-agent action (WebSocket ws://<openclaw-host>:18789)
+  WF->>ERP2: update-erp action (HTTP http://<erp-host>:4100)
   WF->>CH: send-telegram / send-line action
   WF->>WF: send-notification action (in-app)
 ```
