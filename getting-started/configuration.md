@@ -144,7 +144,7 @@ For external managed services (e.g., AWS ElastiCache, Confluent Cloud), override
 # INTERNAL_SERVICE_SECRET=your-internal-service-secret
 
 # URL of the UniCore Platform (public website) for callbacks
-# PLATFORM_URL=https://unicore.bemind.tech
+# PLATFORM_URL=https://your-domain.example.com
 # PLATFORM_CALLBACK_SECRET=your-platform-callback-secret
 ```
 
