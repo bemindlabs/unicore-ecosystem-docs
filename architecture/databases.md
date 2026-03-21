@@ -66,14 +66,14 @@ graph TD
 OWNER → OPERATOR → MARKETER → FINANCE → VIEWER
 ```
 
-### 2. ERP Database (`unicore_erp`) — ERP Schema
+### 2. ERP Database — ERP Schema
 
 **Schema file**: `unicore/services/erp/src/prisma/schema.prisma`
 **Services**: ERP Service
-**Note**: Separate database from the main `unicore` database. Must be created manually before first push.
+**Note**: Separate database from the main database. Must be created manually before first push.
 
 ```sql
-CREATE DATABASE unicore_erp OWNER unicore;
+CREATE DATABASE <erp-database-name> OWNER <db-user>;
 ```
 
 #### CRM Module
