@@ -72,10 +72,10 @@ Open `.env` in your editor and set the required secrets:
 
 ```bash
 # Minimum required changes:
-POSTGRES_PASSWORD=your-strong-database-password
-JWT_SECRET=your-32-character-minimum-secret-key
-BOOTSTRAP_SECRET=your-bootstrap-secret
-LICENSE_ADMIN_SECRET=your-license-secret
+POSTGRES_PASSWORD=<your-strong-database-password>
+JWT_SECRET=<your-32-character-minimum-secret-key>
+BOOTSTRAP_SECRET=<your-bootstrap-secret>
+LICENSE_ADMIN_SECRET=<your-license-admin-secret>
 ```
 
 See [configuration.md](configuration.md) for a full reference of all environment variables, including AI provider keys and integration tokens.
