@@ -25,13 +25,13 @@ The SDK is part of the `@unicore/*` package family and is built with TypeScript 
 import { UniCoreClient } from '@unicore/sdk';
 
 const client = new UniCoreClient({
-  baseUrl: 'https://unicore.bemind.tech',
+  baseUrl: 'https://unicore.example.com',
 });
 
 // Authenticate
 await client.auth.login({
-  email: 'admin@unicore.dev',
-  password: 'admin123',
+  email: 'admin@example.com',
+  password: 'your-password',
 });
 
 // Fetch contacts
