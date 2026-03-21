@@ -5,8 +5,8 @@
 ```mermaid
 graph LR
   CF["Cloudflare<br/>SSL Termination"]
-  NPM["Nginx Proxy Manager<br/>host:80<br/>admin: localhost:81"]
-  NGX["unicores-unicore-nginx-1<br/>:80<br/>nginx:alpine"]
+  NPM["Nginx Proxy Manager<br/>host:80"]
+  NGX["Nginx Container<br/>:80<br/>nginx:alpine"]
   PLAT["Platform<br/>:3100"]
   DASH["Dashboard<br/>:3000"]
   GW["API Gateway<br/>:4000"]
