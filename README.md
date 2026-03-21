@@ -63,7 +63,8 @@ unicore-ecosystem-docs/
 │   ├── rest-api.md               ← Full REST API documentation
 │   ├── websocket-api.md          ← WebSocket (OpenClaw) API
 │   ├── webhook-api.md            ← Webhook event reference
-│   └── sdk.md                    ← Client SDK documentation
+│   ├── sdk.md                    ← Client SDK documentation
+│   └── plugin-sdk.md             ← Plugin SDK API reference
 ├── security/
 │   ├── authentication.md         ← JWT, SSO, OAuth flows
 │   ├── authorization.md          ← RBAC & permission model
