@@ -245,7 +245,7 @@ npm install -g ./packages/cli
 
 # Login
 unicore login --host http://localhost:4000 \
-  --email admin@unicore.dev --password admin123
+  --email <your-admin-email> --password <your-admin-password>
 
 # Launch the TUI
 unicore tui
