@@ -1,6 +1,6 @@
 # Docker Compose Deployment
 
-Docker Compose is the primary and recommended deployment method for UniCore. The root workspace compose file orchestrates all 17 containers across the full stack.
+Docker Compose is the primary and recommended deployment method for UniCore. The root workspace compose file orchestrates all 19 containers across the full stack.
 
 ## Prerequisites
 
