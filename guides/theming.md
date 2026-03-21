@@ -219,7 +219,7 @@ Import the CSS file in the backoffice layout so it loads when the theme is activ
 ### Step 3: Rebuild and Deploy
 
 ```bash
-cd /var/platforms/unicores
+cd /path/to/unicores
 docker compose --profile apps build unicore-dashboard --no-cache
 docker compose --profile apps up -d unicore-dashboard
 ```
