@@ -184,7 +184,7 @@ containers:
     args:
       - "--structured-logs"
       - "--port=5432"
-      - "your-project:us-central1:unicore-postgres"
+      - "<your-project-id>:us-central1:unicore-postgres"
 ```
 
 **Memorystore (Redis)**
