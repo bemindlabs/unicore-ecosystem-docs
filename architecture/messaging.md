@@ -20,8 +20,8 @@ docker compose --profile apps --profile workflows up -d
 | Parameter | Value |
 |-----------|-------|
 | `KAFKA_BROKER_ID` | `1` |
-| `KAFKA_ZOOKEEPER_CONNECT` | `unicore-zookeeper:2181` |
-| `KAFKA_ADVERTISED_LISTENERS` | `PLAINTEXT://unicore-kafka:9092` |
+| `KAFKA_ZOOKEEPER_CONNECT` | `<zookeeper-host>:2181` |
+| `KAFKA_ADVERTISED_LISTENERS` | `PLAINTEXT://<kafka-host>:9092` |
 | `KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR` | `1` |
 
 Replication factor is 1 (single-broker development setup). For production HA, increase to 3 with a multi-broker cluster.
