@@ -226,7 +226,7 @@ Redis has no authentication by default. Enable it before production:
 
 ```conf
 # redis.conf
-requirepass your-strong-redis-password
+requirepass <your-redis-password>
 bind 127.0.0.1
 protected-mode yes
 
