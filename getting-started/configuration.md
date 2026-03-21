@@ -67,9 +67,9 @@ The host-exposed PostgreSQL port is **5433** (maps to container's 5432) to avoid
 ## Authentication
 
 ```bash
-JWT_SECRET=your-32-character-minimum-jwt-secret
-BOOTSTRAP_SECRET=your-bootstrap-provisioning-secret
-LICENSE_ADMIN_SECRET=your-license-admin-secret
+JWT_SECRET=<your-32-character-minimum-jwt-secret>
+BOOTSTRAP_SECRET=<your-bootstrap-provisioning-secret>
+LICENSE_ADMIN_SECRET=<your-license-admin-secret>
 ```
 
 **JWT_SECRET**: All services that validate JWT tokens need this value. It must be identical across the API gateway and any service that independently validates tokens.
