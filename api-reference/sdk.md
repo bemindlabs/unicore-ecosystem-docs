@@ -48,7 +48,7 @@ import { UniCoreClient } from '@unicore/sdk';
 
 const client = new UniCoreClient({
   // Required: base URL of your UniCore instance
-  baseUrl: 'https://unicore.bemind.tech',
+  baseUrl: 'https://unicore.example.com',
 
   // Optional: provide an initial access token
   accessToken: process.env.UNICORE_ACCESS_TOKEN,
