@@ -164,6 +164,7 @@ helm install unicore unicore/unicore \
   --values values-pro.yaml \
   --set postgres.credentials.password=<your-db-password> \
   --set global.jwt.secret=<your-jwt-secret> \
+
   --set license.key=UC-XXXX-XXXX-XXXX-XXXX
 
 # Upgrade
