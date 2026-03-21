@@ -134,29 +134,18 @@ docker network create nginx-proxy
 
 ## Internal DNS
 
-Within the Docker default network, services communicate by their Compose service name:
+Within the Docker default network, services communicate by their Compose service name. Each service is reachable at `<service-name>:<port>` using Docker's internal DNS resolver. Service names and ports are defined in `docker-compose.yml`.
 
-| Service name | Internal address | Protocol |
-|-------------|-----------------|----------|
-| `unicore-postgres` | `unicore-postgres:5432` | PostgreSQL |
-| `unicore-redis` | `unicore-redis:6379` | Redis |
-| `unicore-vectordb` | `unicore-vectordb:6333` | HTTP/gRPC |
-| `unicore-kafka` | `unicore-kafka:9092` | Kafka protocol |
-| `unicore-zookeeper` | `unicore-zookeeper:2181` | Zookeeper |
-| `unicore-api-gateway` | `unicore-api-gateway:4000` | HTTP |
-| `unicore-erp` | `unicore-erp:4100` | HTTP |
-| `unicore-ai-engine` | `unicore-ai-engine:4200` | HTTP |
-| `unicore-rag` | `unicore-rag:4300` | HTTP |
-| `unicore-bootstrap` | `unicore-bootstrap:4500` | HTTP |
-| `unicore-license-api` | `unicore-license-api:4600` | HTTP |
-| `unicore-openclaw-gateway` | `unicore-openclaw-gateway:18789` | WebSocket |
-| `unicore-openclaw-gateway` | `unicore-openclaw-gateway:18790` | HTTP |
-| `unicore-dashboard` | `unicore-dashboard:3000` | HTTP |
-| `unicore-platform` | `unicore-platform:3100` | HTTP |
-| `unicore-dlc-gateway` | `unicore-dlc-gateway:19789` | WebSocket |
-| `unicore-dlc-gateway` | `unicore-dlc-gateway:19790` | HTTP |
-| `unicore-license-db` | `unicore-license-db:5432` | PostgreSQL |
-| `unicore-license-redis` | `unicore-license-redis:6379` | Redis |
+| Service type | Protocol |
+|-------------|----------|
+| PostgreSQL databases | PostgreSQL |
+| Redis instances | Redis |
+| Vector database | HTTP/gRPC |
+| Message broker | Kafka protocol |
+| Coordinator | Zookeeper |
+| Application services (API, ERP, AI, RAG, Bootstrap, License) | HTTP |
+| WebSocket gateways | WebSocket + HTTP |
+| Frontend services (Dashboard, Platform) | HTTP |
 
 ## Port Map
 
