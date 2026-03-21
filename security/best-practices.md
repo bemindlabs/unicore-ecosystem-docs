@@ -55,10 +55,10 @@ Use this checklist before going live. Items marked **[CRITICAL]** are non-negoti
 
 | Service | Default Credential | Environment Variable |
 |---------|-------------------|---------------------|
-| Admin account | `admin@unicore.dev` / `admin123` | N/A — change via dashboard |
+| Admin account | set during provisioning | N/A — change via dashboard |
 | PostgreSQL | `<db-user>` / `<db-password>` | `DATABASE_URL` |
 | Redis | (no auth by default) | `REDIS_PASSWORD` |
-| Bootstrap secret | `unicore-bootstrap-secret-local` | `BOOTSTRAP_SECRET` |
+| Bootstrap secret | set via `BOOTSTRAP_SECRET` env var | `BOOTSTRAP_SECRET` |
 | NPM admin | `<npm-admin-email>` / `<npm-admin-password>` | Nginx Proxy Manager UI |
 
 ---
