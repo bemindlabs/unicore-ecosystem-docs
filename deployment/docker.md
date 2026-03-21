@@ -42,7 +42,7 @@ cd unicore-ecosystem
 # Copy root environment file
 cp .env.example .env
 
-# Edit secrets and configuration
+# Edit secrets and configuration — set all required values before starting
 nano .env
 ```
 
