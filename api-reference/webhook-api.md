@@ -224,7 +224,7 @@ Telegram retries delivery if the server returns a non-2xx status code or does no
 
 1. Go to the [LINE Developers Console](https://developers.line.biz/console/).
 2. Select your channel → Messaging API settings.
-3. Set **Webhook URL** to `https://unicore.bemind.tech/webhooks/line`.
+3. Set **Webhook URL** to `https://unicore.example.com/webhooks/line`.
 4. Enable **Use webhook**.
 5. Use **Verify** to confirm delivery (sends an empty events array).
 
