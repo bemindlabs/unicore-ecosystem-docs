@@ -139,11 +139,11 @@ Used during initial setup only:
 
 ```typescript
 await client.auth.provisionAdmin({
-  email: 'admin@unicore.dev',
+  email: 'admin@example.com',
   name: 'Admin',
-  password: 'admin123',
+  password: 'your-secure-password',
   role: 'OWNER',
-  bootstrapSecret: 'unicore-bootstrap-secret-local',
+  bootstrapSecret: process.env.BOOTSTRAP_SECRET,
 });
 ```
 
