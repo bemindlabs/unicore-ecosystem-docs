@@ -183,11 +183,11 @@ pnpm start:dev
 ```bash
 curl -s http://localhost:4000/auth/provision-admin -X POST \
   -H 'Content-Type: application/json' \
-  -H 'X-Bootstrap-Secret: unicore-bootstrap-secret-local' \
-  -d '{"email":"admin@unicore.dev","password":"admin123","name":"Admin"}'
+  -H 'X-Bootstrap-Secret: <your-bootstrap-secret>' \
+  -d '{"email":"<your-admin-email>","password":"<your-admin-password>","name":"Admin"}'
 ```
 
-Visit `http://localhost:3000` and log in with `admin@unicore.dev` / `admin123`.
+Visit `http://localhost:3000` and log in with `<your-admin-email>` / `<your-admin-password>`.
 
 ## Verify Setup
 
