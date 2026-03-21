@@ -119,8 +119,8 @@ docker exec unicore-erp-1 npx prisma db push --accept-data-loss
 # Provision admin user
 curl -s http://localhost:4000/auth/provision-admin -X POST \
   -H 'Content-Type: application/json' \
-  -H 'X-Bootstrap-Secret: unicore-bootstrap-secret-local' \
-  -d '{"email":"admin@example.com","password":"yourpassword","name":"Admin"}'
+  -H 'X-Bootstrap-Secret: <your-bootstrap-secret>' \
+  -d '{"email":"<your-admin-email>","password":"<your-admin-password>","name":"Admin"}'
 ```
 
 Visit `http://localhost:3000` to access the dashboard.
