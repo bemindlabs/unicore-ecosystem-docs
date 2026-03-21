@@ -32,7 +32,7 @@ LICENSE_SERVER_URL=https://license.unicore.bemind.tech
 
 ### License Binding
 
-Licenses are machine-bound using a SHA-256 fingerprint of the host hardware. A single license supports one active machine binding by default. Contact support for multi-instance or floating licenses.
+Licenses are machine-bound using a hardware fingerprint derived from host system identifiers. A single license supports one active machine binding by default. Contact support for multi-instance or floating licenses.
 
 ## Pro Packages
 
