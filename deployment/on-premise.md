@@ -308,8 +308,8 @@ docker scout cves unicore-api-gateway:latest
 - Use Docker secrets or environment files with restricted permissions:
 
 ```bash
-chmod 600 /var/platforms/unicores/.env
-chown root:root /var/platforms/unicores/.env
+chmod 600 .env
+chown root:root .env
 ```
 
 For Enterprise deployments, use HashiCorp Vault for secret injection:
