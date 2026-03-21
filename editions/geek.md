@@ -25,7 +25,7 @@ A full-featured command-line interface for all platform operations.
 npm install -g @unicore-geek/cli
 
 # Authenticate
-unicore login --host http://localhost:4000 --email admin@unicore.dev
+unicore login --host http://localhost:4000 --email <your-admin-email>
 
 # ERP operations
 unicore crm list contacts
