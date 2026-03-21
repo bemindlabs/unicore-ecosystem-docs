@@ -192,8 +192,6 @@ These are set automatically in the root `docker-compose.yml` for the full produc
 Pro Edition uses the root workspace compose file which includes all feature flags:
 
 ```bash
-cd /var/platforms/unicores
-
 # Start full stack (community + pro)
 docker compose --profile apps --profile workflows up -d
 ```
