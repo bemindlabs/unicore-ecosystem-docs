@@ -12,7 +12,7 @@ Use this checklist before going live. Items marked **[CRITICAL]** are non-negoti
 
 - [ ] **[CRITICAL]** Change all default credentials (see [Default Credentials to Rotate](#default-credentials-to-rotate))
 - [ ] **[CRITICAL]** Replace the default `JWT_SECRET` / RSA keys with freshly generated secrets
-- [ ] **[CRITICAL]** Replace the default `X-Bootstrap-Secret` (`unicore-bootstrap-secret-local`) with a random 32-byte value and disable the provision-admin endpoint afterward
+- [ ] **[CRITICAL]** Replace the default `X-Bootstrap-Secret` with a random 32-byte value and disable the provision-admin endpoint afterward
 - [ ] Rotate Redis password from the default
 - [ ] Rotate the PostgreSQL password from the default
 - [ ] Set `NODE_ENV=production` on all services
