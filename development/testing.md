@@ -371,8 +371,8 @@ test.describe('Contacts module', () => {
   test.beforeEach(async ({ page }) => {
     // Login
     await page.goto('/login');
-    await page.getByLabel('Email').fill('admin@unicore.dev');
-    await page.getByLabel('Password').fill('admin123');
+    await page.getByLabel('Email').fill('test@example.com');
+    await page.getByLabel('Password').fill('testpassword123');
     await page.getByRole('button', { name: 'Login' }).click();
     await expect(page).toHaveURL('/dashboard');
   });
