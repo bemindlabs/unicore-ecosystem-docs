@@ -641,7 +641,7 @@ const client = new UniCoreClient({
 Recommended `.env` entries:
 
 ```env
-UNICORE_BASE_URL=https://unicore.bemind.tech
+UNICORE_BASE_URL=https://unicore.example.com
 UNICORE_ACCESS_TOKEN=eyJhbGci...
 UNICORE_REFRESH_TOKEN=a1b2c3...
 ```
