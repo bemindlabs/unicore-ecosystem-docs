@@ -120,22 +120,24 @@ open http://localhost:3000
 
 ## Service Details
 
-| Service | Container Name | Port | Health Check |
-|---------|---------------|------|-------------|
-| Dashboard | `unicores-unicore-dashboard-1` | 3000 | `GET /` |
-| API Gateway | `unicores-unicore-api-gateway-1` | 4000 | `GET /health` |
-| ERP | `unicores-unicore-erp-1` | 4100 | `GET /health` |
-| AI Engine | `unicores-unicore-ai-engine-1` | 4200 | `GET /health` |
-| RAG | `unicores-unicore-rag-1` | 4300 | `GET /health` |
-| Bootstrap | `unicores-unicore-bootstrap-1` | 4500 | `GET /health` |
-| License API | `unicores-unicore-license-api-1` | 4600 | `GET /health` |
-| OpenClaw | `unicores-unicore-openclaw-gateway-1` | 18789/18790 | `GET /health` |
-| Nginx | `unicores-unicore-nginx-1` | 80 | — |
-| PostgreSQL | `unicores-unicore-postgres-1` | 5433 | — |
-| Redis | `unicores-unicore-redis-1` | 6380 | — |
-| Qdrant | `unicores-unicore-vectordb-1` | 6333 | `GET /health` |
-| Kafka | `unicores-unicore-kafka-1` | 9092 | — |
-| Zookeeper | `unicores-unicore-zookeeper-1` | 2181 | — |
+Container names are derived from the directory name of the root workspace (e.g. `<workspace>-unicore-<service>-1`). Ports listed are the internal service ports.
+
+| Service | Compose Service Name | Port | Health Check |
+|---------|---------------------|------|-------------|
+| Dashboard | `unicore-dashboard` | 3000 | `GET /` |
+| API Gateway | `unicore-api-gateway` | 4000 | `GET /health` |
+| ERP | `unicore-erp` | 4100 | `GET /health` |
+| AI Engine | `unicore-ai-engine` | 4200 | `GET /health` |
+| RAG | `unicore-rag` | 4300 | `GET /health` |
+| Bootstrap | `unicore-bootstrap` | 4500 | `GET /health` |
+| License API | `unicore-license-api` | 4600 | `GET /health` |
+| OpenClaw | `unicore-openclaw-gateway` | 18789/18790 | `GET /health` |
+| Nginx | `unicore-nginx` | 80 | — |
+| PostgreSQL | `unicore-postgres` | 5433 | — |
+| Redis | `unicore-redis` | 6380 | — |
+| Qdrant | `unicore-vectordb` | 6333 | `GET /health` |
+| Kafka | `unicore-kafka` | 9092 | — |
+| Zookeeper | `unicore-zookeeper` | 2181 | — |
 
 ## Rebuilding Services
 
