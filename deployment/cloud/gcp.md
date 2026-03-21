@@ -250,7 +250,8 @@ gsutil mb -p your-project-id \
 gsutil versioning set on gs://unicore-backups-yourorg/
 
 # Automated PostgreSQL backup
-0 2 * * * docker exec unicores-unicore-postgres-1 \
+# Replace <postgres-container> with your actual container name
+0 2 * * * docker exec <postgres-container> \
   pg_dump -U unicore unicore | gzip | \
   gsutil cp - gs://unicore-backups-yourorg/postgres/unicore-$(date +%Y%m%d).sql.gz
 ```
