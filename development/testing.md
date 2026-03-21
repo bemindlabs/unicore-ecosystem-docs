@@ -458,7 +458,7 @@ jobs:
         image: postgres:16
         env:
           POSTGRES_USER: unicore
-          POSTGRES_PASSWORD: unicore
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: unicore
         options: >-
           --health-cmd pg_isready
