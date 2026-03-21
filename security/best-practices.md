@@ -402,7 +402,7 @@ login() { ... }
 
 If you suspect a security incident:
 
-1. **Contain**: Rotate the compromised credential immediately. Invalidate all active sessions by flushing the Redis refresh token namespace: `redis-cli -n 0 --scan --pattern "refresh:*" | xargs redis-cli DEL`
+1. **Contain**: Rotate the compromised credential immediately. Invalidate all active sessions by flushing the Redis session and refresh token namespaces using `redis-cli`.
 2. **Investigate**: Query the audit log for the affected user/IP in the relevant time window.
 3. **Notify**: If personal data was accessed, GDPR requires notification to the supervisory authority within 72 hours.
 4. **Remediate**: Patch the root cause. Re-run the deployment checklist before bringing the system back online.
