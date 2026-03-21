@@ -4,10 +4,10 @@ UniCore uses **Apache Kafka 7.5** (via KafkaJS 2.2) as its internal event stream
 
 ## Kafka Infrastructure
 
-| Container | Image | Internal DNS | Port |
-|-----------|-------|-------------|------|
-| `unicores-unicore-kafka-1` | `confluentinc/cp-kafka:7.5.0` | `<kafka-host>:9092` | `9092` |
-| `unicores-unicore-zookeeper-1` | `confluentinc/cp-zookeeper:7.5.0` | `<zookeeper-host>:2181` | `2181` (internal only) |
+| Compose Service | Image | Port |
+|----------------|-------|------|
+| `unicore-kafka` | `confluentinc/cp-kafka:7.5.0` | `9092` (internal) |
+| `unicore-zookeeper` | `confluentinc/cp-zookeeper:7.5.0` | `2181` (internal only) |
 
 Both Kafka and Zookeeper are started only when the `workflows` Docker Compose profile is active:
 
