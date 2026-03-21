@@ -177,17 +177,16 @@ docker compose --profile apps --profile workflows restart
 ## Viewing Logs
 
 ```bash
-# Follow logs for a specific service
-docker logs -f unicores-unicore-dashboard-1
-docker logs -f unicores-unicore-api-gateway-1
-docker logs -f unicores-unicore-erp-1
+# Follow logs for a specific service (via Docker Compose — recommended)
+docker compose --profile apps logs -f unicore-dashboard
+docker compose --profile apps logs -f unicore-api-gateway
+docker compose --profile apps logs -f unicore-erp
 
 # Last 100 lines
-docker logs --tail 100 unicores-unicore-api-gateway-1
+docker compose --profile apps logs --tail 100 unicore-api-gateway
 
-# All services (compose)
+# All services
 docker compose --profile apps logs -f
-docker compose --profile apps logs --tail 50 unicore-api-gateway
 ```
 
 ## Stopping Services
