@@ -21,7 +21,7 @@ graph LR
   NGX -->|"your-domain.example.com<br/>/ws (WebSocket)"| OC
 ```
 
-All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for both `unicore.bemind.tech` and `unicore-demo.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies both subdomains to the internal Nginx container. Nginx uses two server blocks: `unicore.bemind.tech` routes all traffic to the Platform service (public website), while `unicore-demo.bemind.tech` uses path-based routing to reach the Dashboard, API Gateway, and OpenClaw services.
+All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for both `unicore.bemind.tech` and your dashboard domain. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies both subdomains to the internal Nginx container. Nginx uses two server blocks: `unicore.bemind.tech` routes all traffic to the Platform service (public website), while your dashboard domain uses path-based routing to reach the Dashboard, API Gateway, and OpenClaw services.
 
 ## Nginx Proxy Manager
 
