@@ -63,7 +63,7 @@ The `/ws` location performs an HTTP → WebSocket upgrade:
 
 ```nginx
 location /ws {
-    proxy_pass http://openclaw_ws;     # → <openclaw-service>:<port>
+    proxy_pass http://openclaw_ws;     # → unicore-openclaw-gateway:18789
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
