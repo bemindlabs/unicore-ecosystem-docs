@@ -88,8 +88,8 @@ const client = new UniCoreClient({
 
 ```typescript
 const session = await client.auth.login({
-  email: 'admin@unicore.dev',
-  password: 'admin123',
+  email: 'admin@example.com',
+  password: 'your-password',
 });
 
 console.log(session.accessToken);  // JWT access token
