@@ -255,8 +255,8 @@ docker compose --profile apps up -d
 ### Container exits immediately
 
 ```bash
-# Check exit logs
-docker logs unicores-unicore-api-gateway-1
+# Check exit logs (use docker compose logs or docker logs <container-name>)
+docker compose --profile apps logs unicore-api-gateway
 
 # Common causes: missing .env vars, database not ready, port conflicts
 ```
