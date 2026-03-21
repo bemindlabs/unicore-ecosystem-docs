@@ -13,12 +13,12 @@ graph LR
   OC["OpenClaw<br/>:18789"]
 
   CF -->|"unicore.bemind.tech<br/>HTTPS → HTTP"| NPM
-  CF -->|"unicore-demo.bemind.tech<br/>HTTPS → HTTP"| NPM
-  NPM -->|"http → unicores-unicore-nginx-1:80"| NGX
+  CF -->|"your-domain.example.com<br/>HTTPS → HTTP"| NPM
+  NPM -->|"http → <nginx-container>:80"| NGX
   NGX -->|"unicore.bemind.tech<br/>/ (public website)"| PLAT
-  NGX -->|"unicore-demo.bemind.tech<br/>/ (all pages)"| DASH
-  NGX -->|"unicore-demo.bemind.tech<br/>/api/* /auth/* /webhooks/*"| GW
-  NGX -->|"unicore-demo.bemind.tech<br/>/ws (WebSocket)"| OC
+  NGX -->|"your-domain.example.com<br/>/ (all pages)"| DASH
+  NGX -->|"your-domain.example.com<br/>/api/* /auth/* /webhooks/*"| GW
+  NGX -->|"your-domain.example.com<br/>/ws (WebSocket)"| OC
 ```
 
 All inbound traffic enters via Cloudflare, which provides SSL/TLS termination and DNS for both `unicore.bemind.tech` and `unicore-demo.bemind.tech`. Cloudflare forwards decrypted HTTP to **Nginx Proxy Manager** (NPM), which proxies both subdomains to the internal Nginx container. Nginx uses two server blocks: `unicore.bemind.tech` routes all traffic to the Platform service (public website), while `unicore-demo.bemind.tech` uses path-based routing to reach the Dashboard, API Gateway, and OpenClaw services.
