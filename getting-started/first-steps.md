@@ -10,10 +10,10 @@ This guide walks you through the platform after a successful installation. By th
 
 Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-You will see the UniCore login page. Sign in with the default admin credentials:
+You will see the UniCore login page. Sign in with the admin credentials you set during provisioning:
 
-- **Email**: `admin@unicore.dev`
-- **Password**: `admin123`
+- **Email**: `<your-admin-email>`
+- **Password**: `<your-admin-password>`
 
 > Change this password immediately after your first login. Go to **Settings → Account → Change Password**.
 
