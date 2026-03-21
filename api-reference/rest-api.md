@@ -69,8 +69,8 @@ Authenticate with email and password.
 
 ```json
 {
-  "email": "admin@unicore.dev",
-  "password": "admin123"
+  "email": "user@example.com",
+  "password": "YourPassword1"
 }
 ```
 
@@ -83,7 +83,7 @@ Authenticate with email and password.
   "expiresIn": 900,
   "user": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
-    "email": "admin@unicore.dev",
+    "email": "user@example.com",
     "name": "Admin",
     "role": "OWNER"
   }
