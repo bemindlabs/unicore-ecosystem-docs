@@ -106,7 +106,7 @@ az network application-gateway ssl-cert create \
   --gateway-name unicore-appgw \
   --name unicore-ssl \
   --cert-file ./unicore.pfx \
-  --cert-password "cert-password"
+  --cert-password "<cert-password>"
 ```
 
 #### 5. Configure Azure DNS
