@@ -181,17 +181,17 @@ Test authentication (using the provisioned admin):
 curl -s http://localhost:4000/auth/login \
   -X POST \
   -H 'Content-Type: application/json' \
-  -d '{"email":"admin@unicore.dev","password":"admin123"}'
+  -d '{"email":"<your-admin-email>","password":"<your-admin-password>"}'
 # Expected: {"access_token":"...","user":{...}}
 ```
 
 Open the dashboard in your browser: [http://localhost:3000](http://localhost:3000)
 
-Default login credentials:
-- **Email**: `admin@unicore.dev`
-- **Password**: `admin123`
+Default login credentials (set during provisioning):
+- **Email**: `<your-admin-email>`
+- **Password**: `<your-admin-password>`
 
-> Change the default password immediately after your first login in production environments.
+> Use a strong password and change it immediately after your first login in production environments.
 
 ## Rebuilding Individual Services
 
