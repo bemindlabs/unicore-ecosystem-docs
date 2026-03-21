@@ -176,22 +176,7 @@ proxy_set_header X-Forwarded-For $remote_addr;
 
 ### Internal Firewall Rules
 
-```
-# Allow only
-:80   <- public internet (Cloudflare IPs only via ufw)
-:443  <- public internet (Cloudflare IPs only)
-:81   <- NPM admin — restrict to management VPN/IP only
-
-# Block externally
-:3000  (dashboard)
-:4000  (API gateway)
-:4100-4600  (microservices)
-:5433  (PostgreSQL)
-:6380  (Redis)
-:6333  (Qdrant)
-:9092  (Kafka)
-:18789-18790  (OpenClaw)
-```
+Configure your host firewall so that only ports 80 and 443 are reachable from the public internet. Block all internal service ports (application services, databases, message brokers, and admin interfaces) and expose them only through the reverse proxy. Restrict any admin or management ports to a trusted VPN or management IP range.
 
 ---
 
