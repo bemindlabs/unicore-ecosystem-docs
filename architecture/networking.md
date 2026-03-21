@@ -31,7 +31,7 @@ NPM manages the external proxy hosts for both subdomains:
 |---------|-------|
 | Admin UI | Access NPM admin on port 81 (configure credentials on first login) |
 | Proxy target (`unicore.bemind.tech`) | `<nginx-container>:80` |
-| Proxy target (`unicore-demo.bemind.tech`) | `<nginx-container>:80` |
+| Proxy target (your dashboard domain) | `<nginx-container>:80` |
 
 Both proxy hosts are pointed at the internal Nginx container by service DNS name. NPM and the Nginx container share the external `nginx-proxy` Docker network.
 
