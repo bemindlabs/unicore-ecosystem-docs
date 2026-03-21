@@ -234,7 +234,7 @@ Telegram retries delivery if the server returns a non-2xx status code or does no
 curl -X POST "https://api.telegram.org/bot<BOT_TOKEN>/setWebhook" \
   -H "Content-Type: application/json" \
   -d '{
-    "url": "https://unicore.bemind.tech/webhooks/telegram",
+    "url": "https://unicore.example.com/webhooks/telegram",
     "secret_token": "<your-webhook-secret>",
     "allowed_updates": ["message", "callback_query", "inline_query"]
   }'
