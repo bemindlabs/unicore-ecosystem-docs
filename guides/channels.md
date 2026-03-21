@@ -131,7 +131,7 @@ Embed a chat widget on your website:
   "type": "webchat",
   "channelId": "webchat-main",
   "displayName": "Website Chat",
-  "apiKey": "your-api-key",
+  "apiKey": "<your-webchat-api-key>",
   "allowedOrigins": ["https://example.com"],
   "greeting": "Hello! How can I help?",
   "sessionTimeout": 1800000,
