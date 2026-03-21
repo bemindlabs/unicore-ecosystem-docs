@@ -240,8 +240,7 @@ docker compose --profile apps up -d
 When submodule code is updated:
 
 ```bash
-cd /var/platforms/unicores
-
+# From the root workspace directory
 # Pull latest submodule commits
 git submodule update --remote --merge
 
