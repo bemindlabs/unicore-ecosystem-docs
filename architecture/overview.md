@@ -37,7 +37,7 @@ C4Container
   title UniCore Platform — Container Diagram
 
   Boundary(frontend, "Frontend") {
-    Container(dashboard, "Dashboard", "Next.js 14", "Single-page application — CRM, inventory, invoicing, AI agents, settings")
+    Container(dashboard, "Dashboard", "Next.js 16", "Single-page application — CRM, inventory, invoicing, AI agents, settings")
   }
 
   Boundary(backend, "Backend Services") {
@@ -106,7 +106,7 @@ unicores/                          (root workspace — production compose)
 | `unicore-enterprise` | github.com/bemindlabs/unicore-enterprise | Proprietary | Multi-tenancy, HA clustering, GDPR/SOC2 compliance, SAML/AD/OIDC enterprise SSO |
 | `unicore-geek` | github.com/bemindlabs/unicore-geek | BSL 1.1 | Terminal-first edition: TUI dashboard, REPL console, game mode, no web UI |
 | `unicore-ai-dlc` | github.com/bemindlabs/unicore-ai-dlc | BSL 1.1 | AI Developer Lifecycle Chat: distributed WebSocket gateway for developer workflows |
-| `unicore-platform` | github.com/bemindlabs/unicore-platform | BSL 1.1 | Public website: landing pages, pricing, showcases (Next.js 14, port 3100) |
+| `unicore-platform` | github.com/bemindlabs/unicore-platform | BSL 1.1 | Public website: landing pages, pricing, showcases (Next.js 16, port 3100) |
 
 ## Edition Model
 
@@ -173,7 +173,7 @@ The `unicore/` repository follows a Turborepo monorepo layout:
 ```
 unicore/
 ├── apps/
-│   └── dashboard/             Next.js 14 frontend (port 3000)
+│   └── dashboard/             Next.js 16 frontend (port 3000)
 ├── services/
 │   ├── api-gateway/           NestJS REST + auth (port 4000)
 │   ├── erp/                   NestJS ERP: CRM, inventory, invoicing (port 4100)
