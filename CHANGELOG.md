@@ -2,6 +2,15 @@
 
 Updated: 2026-03-22
 
+
+## [0.1.0] - 2026-03-22
+
+### Added
+- 41 documentation pages covering all editions
+- Architecture Decision Records (ADRs)
+- Deployment runbook
+- Contributing guide
+
 ## [0.0.3] - 2026-03-21
 
 ### Added
