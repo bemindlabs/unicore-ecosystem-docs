@@ -20,7 +20,7 @@ The Community Edition is the open-core foundation of the UniCore platform — fr
 
 | Service | Port | Description |
 |---------|------|-------------|
-| Dashboard | 3000 | Next.js 14 frontend with full UI |
+| Dashboard | 3000 | Next.js 16 frontend with full UI |
 | API Gateway | 4000 | NestJS REST API, JWT authentication |
 | ERP | 4100 | CRM, inventory, invoicing, reporting |
 | AI Engine | 4200 | AI model orchestration |
