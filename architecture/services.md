@@ -8,7 +8,7 @@ UniCore runs 19 Docker containers, grouped into infrastructure services (always 
 
 | Service | Container | Port (host:container) | Framework | Profile | Source |
 |---------|----------|----------------------|-----------|---------|--------|
-| Dashboard | `unicores-unicore-dashboard-1` | `3000:3000` | Next.js 14 | `apps` | Build from source |
+| Dashboard | `unicores-unicore-dashboard-1` | `3000:3000` | Next.js 16 | `apps` | Build from source |
 | API Gateway | `unicores-unicore-api-gateway-1` | `4000:4000` | NestJS 10 | `apps` | Build from source |
 | ERP | `unicores-unicore-erp-1` | `4100:4100` | NestJS 10 | `apps` | Build from source |
 | AI Engine | `unicores-unicore-ai-engine-1` | `4200:4200` | NestJS 10 | `apps` | Build from source |
@@ -17,7 +17,7 @@ UniCore runs 19 Docker containers, grouped into infrastructure services (always 
 | License API | `unicores-unicore-license-api-1` | `4600:4600` | NestJS 10 | `apps` | Build from source |
 | Workflow | `unicores-unicore-workflow-1` | — (4400 internal) | NestJS 10 | `workflows` | Build from source |
 | OpenClaw Gateway | `unicores-unicore-openclaw-gateway-1` | `18790:18790` | NestJS 10 | `apps` | Build from source |
-| Platform | `unicores-unicore-platform-1` | `3100:3100` | Next.js 14 | `apps` | Build from source |
+| Platform | `unicores-unicore-platform-1` | `3100:3100` | Next.js 16 | `apps` | Build from source |
 | DLC Gateway | `unicores-unicore-dlc-gateway-1` | `19789:19789`, `19790:19790` | NestJS 10 | `apps` | Build from source |
 | Nginx | `unicores-unicore-nginx-1` | `80:80` | nginx:alpine | `apps` | Pulled image |
 | PostgreSQL | `unicores-unicore-postgres-1` | `5433:5432` | postgres:16-alpine | — (always) | Pulled image |
@@ -31,7 +31,7 @@ UniCore runs 19 Docker containers, grouped into infrastructure services (always 
 ## Service Descriptions
 
 ### Dashboard (`unicore-dashboard`)
-Next.js 14 single-page application. Serves all UI pages: CRM contacts, orders, invoices, inventory, AI agent chat, workflow builder, settings, and the setup wizard. Built with Tailwind CSS and shadcn/ui. Communicates exclusively via the API Gateway and the OpenClaw WebSocket endpoint.
+Next.js 16 single-page application. Serves all UI pages: CRM contacts, orders, invoices, inventory, AI agent chat, workflow builder, settings, and the setup wizard. Built with Tailwind CSS and shadcn/ui. Communicates exclusively via the API Gateway and the OpenClaw WebSocket endpoint.
 
 - **Build context**: `./unicore` — `apps/dashboard/Dockerfile`
 - **Key env**: `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_EDITION`, `NEXT_PUBLIC_BOOTSTRAP_SECRET`
@@ -76,7 +76,7 @@ Multi-agent WebSocket hub. Clients connect via `/ws` and communicate with one of
 - **Key env**: `REDIS_URL`
 
 ### Platform (`unicore-platform`)
-Next.js 14 public-facing website. Serves the landing page, pricing, showcases, and other marketing pages at `unicore.bemind.tech`. Runs independently from the dashboard on port 3100.
+Next.js 16 public-facing website. Serves the landing page, pricing, showcases, and other marketing pages at `unicore.bemind.tech`. Runs independently from the dashboard on port 3100.
 
 - **Build context**: `./unicore-platform` — `Dockerfile`
 - **Key env**: `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_SITE_URL`
