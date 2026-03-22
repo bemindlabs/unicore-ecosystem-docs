@@ -8,8 +8,9 @@ Automate business processes with event-driven workflows powered by Kafka.
 
 UniCore's Workflow Engine listens for business events (orders, invoices, inventory changes) via Kafka and executes automated action sequences — invoking AI agents, updating ERP records, and sending notifications.
 
-```
-Kafka Event → Trigger Match → Condition Check → Action Sequence → Result
+```mermaid
+graph LR
+    A["Kafka Event"] --> B["Trigger Match"] --> C["Condition Check"] --> D["Action Sequence"] --> E["Result"]
 ```
 
 ## Architecture
