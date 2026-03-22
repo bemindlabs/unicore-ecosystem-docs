@@ -175,9 +175,9 @@ SSO providers are configured per-tenant in the dashboard under **Settings → SS
 
 ```env
 # Example: Google OIDC
-SSO_GOOGLE_CLIENT_ID=your-google-client-id
-SSO_GOOGLE_CLIENT_SECRET=your-google-client-secret
-SSO_GOOGLE_CALLBACK_URL=https://yourdomain.com/auth/sso/google/callback
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_CALLBACK_URL=https://yourdomain.com/auth/google/callback
 
 # SAML (Enterprise)
 SAML_ENTRY_POINT=https://idp.example.com/sso/saml
