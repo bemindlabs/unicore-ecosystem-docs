@@ -228,7 +228,7 @@ Update the authenticated user's profile. Requires authentication.
 ```json
 {
   "name": "Jane Smith",
-  "email": "jane@unicore.dev"
+  "email": "jane@bemind.tech"
 }
 ```
 
