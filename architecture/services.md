@@ -97,7 +97,7 @@ Event-driven automation engine. Consumes Kafka topics published by the ERP servi
 - **Pro flags**: `ENABLE_ADVANCED_WORKFLOWS`, `ENABLE_WORKFLOW_TEMPLATES`
 
 ### License API (`unicore-license-api`)
-Validates and manages UniCore license keys (format: `UC-XXXX-XXXX-XXXX-XXXX`) signed with Ed25519. Binds licenses to a hardware fingerprint derived from host system identifiers. Enforces 10 feature flags per license. Uses its own isolated PostgreSQL database and Redis instance.
+Validates and manages UniCore license keys (format: `UC-XXXX-XXXX-XXXX-XXXX`) signed with Ed25519. Binds licenses to a hardware fingerprint derived from host system identifiers. Enforces 17 feature flags per license. Uses its own isolated PostgreSQL database and Redis instance.
 
 - **Build context**: `./unicore-license` — `services/license-api/Dockerfile`
 - **Key env**: `DATABASE_URL` (`unicore_license` DB), `REDIS_URL` (license Redis), `ADMIN_SECRET`
