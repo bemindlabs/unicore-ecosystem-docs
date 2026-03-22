@@ -177,7 +177,7 @@ graph TD
 | _(none)_ | PostgreSQL, Redis, Qdrant | Infrastructure only — DB init, migrations |
 | `apps` | All above + all application services + Nginx + License DB + License Redis | Normal operation |
 | `workflows` | Zookeeper, Kafka, Workflow Engine | Kafka-driven automation |
-| `apps` + `workflows` | Everything (all 19 containers) | Full production |
+| `apps` + `workflows` | Everything (all 23 containers) | Full production |
 
 ```bash
 # Infrastructure only
@@ -186,7 +186,7 @@ docker compose up -d
 # Apps without Kafka workflow engine
 docker compose --profile apps up -d
 
-# Full production (all 19 containers)
+# Full production (all 23 containers)
 docker compose --profile apps --profile workflows up -d
 ```
 
