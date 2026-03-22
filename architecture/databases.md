@@ -155,8 +155,10 @@ CREATE DATABASE <erp-database-name> OWNER <db-user>;
 | `AuditLog` | License operation log | `action` (AuditAction enum), `meta` JSON, `ip` |
 | `FeatureFlag` | Global platform feature flags | `key` (unique), `enabled` |
 
-**License feature flags** (10 boolean fields on `License`):
-`featAllAgents`, `featCustomAgentBuilder`, `featFullRbac`, `featAdvancedWorkflows`, `featAllChannels`, `featUnlimitedRag`, `featWhiteLabelBranding`, `featSso`, `featAuditLogs`, `featPrioritySupport`
+**License feature flags** (17 boolean fields on `License`):
+- **Pro (10):** `featAllAgents`, `featCustomAgentBuilder`, `featFullRbac`, `featAdvancedWorkflows`, `featAllChannels`, `featUnlimitedRag`, `featWhiteLabelBranding`, `featSso`, `featAuditLogs`, `featPrioritySupport`
+- **Add-on (2):** `featGeekCli`, `featAiDlc`
+- **Enterprise (5):** `featMultiTenancy`, `featCompliance`, `featHaCluster`, `featEnterpriseSso`, `featCustomApi`
 
 **AuditAction enum**: `CREATED`, `UPDATED`, `REVOKED`, `VALIDATED`, `BIND_SUCCESS`, `BIND_FAILED`, `UNBIND`, `ANALYTICS_RECEIVED`
 
