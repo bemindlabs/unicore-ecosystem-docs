@@ -18,7 +18,7 @@ This repository contains all public-facing documentation for the UniCore ecosyst
 | **Geek** | unicore-geek | Terminal-first edition with game mode, TUI, REPL console — no dashboard |
 | **License Server** | unicore-license | License validation, key management, and machine binding |
 | **AI DLC** | unicore-ai-dlc | AI Developer Lifecycle Chat — distributed WebSocket gateway for developer workflows |
-| **Platform** | unicore-platform | Public website — landing pages, pricing, showcases (Next.js 14) |
+| **Platform** | unicore-platform | Public website — landing pages, pricing, showcases (Next.js 16) |
 
 ## Documentation Structure
 
@@ -84,7 +84,7 @@ The UniCore platform is built with:
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | Next.js 14, React 18, TypeScript 5.5, Tailwind CSS, shadcn/ui |
+| Frontend | Next.js 16, React 18, TypeScript 5.5, Tailwind CSS, shadcn/ui |
 | Backend | NestJS 10.4, Node.js 20+, TypeScript 5.5 |
 | ORM | Prisma 6 |
 | Auth | Passport.js (JWT + local strategy) |
