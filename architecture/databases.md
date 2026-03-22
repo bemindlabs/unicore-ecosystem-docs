@@ -1,5 +1,7 @@
 # Databases
 
+Updated: 2026-03-22
+
 UniCore uses three database technologies: **PostgreSQL 16** for relational data (with four distinct Prisma schemas), **Redis 7** for caching and session management, and **Qdrant** for vector embeddings used by the RAG service.
 
 ## Database Topology

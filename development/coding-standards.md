@@ -1,5 +1,7 @@
 # Coding Standards
 
+Updated: 2026-03-22
+
 This document defines the TypeScript coding conventions, linting rules, formatting standards, and architectural patterns used across the UniCore platform.
 
 ## TypeScript

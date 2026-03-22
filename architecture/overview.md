@@ -1,5 +1,7 @@
 # Architecture Overview
 
+Updated: 2026-03-22
+
 UniCore is a modular, AI-powered business platform built on a multi-repo monorepo structure. It ships in multiple editions — from an open-core community release through enterprise clustering — all sharing the same container topology and service contracts.
 
 ## C4 Model — System Context

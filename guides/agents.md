@@ -1,5 +1,7 @@
 # AI Agents Guide
 
+Updated: 2026-03-22
+
 Configure, customize, and deploy UniCore's AI agent system.
 
 ## Overview

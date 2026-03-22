@@ -1,5 +1,7 @@
 # UniCore Geek Edition
 
+Updated: 2026-03-22
+
 The Geek Edition is a terminal-first variant of UniCore built for developers, power users, and CLI enthusiasts. There is no web dashboard — all interaction happens through a CLI, TUI (terminal user interface), or REPL console. It includes a game mode and a plugin API for extending the platform.
 
 ## Overview

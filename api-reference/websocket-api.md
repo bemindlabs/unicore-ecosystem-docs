@@ -1,5 +1,7 @@
 # WebSocket API Reference — OpenClaw Gateway
 
+Updated: 2026-03-22
+
 OpenClaw is the multi-agent WebSocket hub that coordinates communication between AI agents and the broader UniCore platform. It runs on two ports:
 
 | Port | Purpose |

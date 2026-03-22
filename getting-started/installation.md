@@ -1,5 +1,7 @@
 # Installation
 
+Updated: 2026-03-22
+
 This guide walks you through cloning the UniCore ecosystem, configuring the environment, starting all 17 containers, and verifying a working installation.
 
 > Before starting, confirm your system meets the [system requirements](system-requirements.md).

@@ -1,5 +1,7 @@
 # UniCore Ecosystem Documentation
 
+Updated: 2026-03-22
+
 Official public documentation, wiki, and guides for the UniCore AI-powered business platform ecosystem by BeMind Technology.
 
 ## Overview

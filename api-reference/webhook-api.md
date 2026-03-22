@@ -1,5 +1,7 @@
 # Webhook API Reference
 
+Updated: 2026-03-22
+
 UniCore accepts incoming webhook payloads from third-party messaging platforms. Webhooks are received at the API Gateway and routed to the OpenClaw agent pipeline for processing.
 
 ## Webhook Endpoints

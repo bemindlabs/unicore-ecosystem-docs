@@ -1,5 +1,7 @@
 # UniCore AI-DLC — Developer Lifecycle Chat
 
+Updated: 2026-03-22
+
 AI-powered development team collaboration platform with 5 specialized SDLC agents.
 
 ## Overview

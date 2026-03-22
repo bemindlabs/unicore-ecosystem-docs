@@ -1,5 +1,7 @@
 # Services
 
+Updated: 2026-03-22
+
 UniCore runs 19 Docker containers, grouped into infrastructure services (always up), application services (started via the `apps` profile), and workflow services (started via the `workflows` profile).
 
 ## Service Inventory

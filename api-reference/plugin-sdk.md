@@ -1,5 +1,7 @@
 # Plugin SDK API Reference
 
+Updated: 2026-03-22
+
 Complete API reference for the `@unicore-geek/plugins` SDK (v0.0.2+).
 
 ## Package Exports

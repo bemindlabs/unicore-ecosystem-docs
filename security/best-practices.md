@@ -1,5 +1,7 @@
 # Security Best Practices
 
+Updated: 2026-03-22
+
 This guide covers hardening a UniCore deployment for production. Work through each section before exposing the platform to the internet or handling real customer data.
 
 ---

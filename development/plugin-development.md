@@ -1,5 +1,7 @@
 # Plugin Development
 
+Updated: 2026-03-22
+
 Build custom plugins for UniCore using the `@unicore-geek/plugins` SDK. Plugins extend the platform with custom CLI commands, event hooks, integrations, and automation.
 
 ## Overview

@@ -1,5 +1,7 @@
 # Local Development Setup
 
+Updated: 2026-03-22
+
 This guide walks you through setting up a full UniCore development environment on your local machine.
 
 ## Prerequisites

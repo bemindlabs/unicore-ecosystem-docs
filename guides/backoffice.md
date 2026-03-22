@@ -1,5 +1,7 @@
 # Backoffice Guide
 
+Updated: 2026-03-22
+
 Manage your AI agent team from a visual, multi-agent workspace.
 
 ## Overview

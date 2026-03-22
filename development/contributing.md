@@ -1,5 +1,7 @@
 # Contributing to UniCore
 
+Updated: 2026-03-22
+
 Thank you for your interest in contributing to the UniCore platform. This guide covers the contribution process, branch conventions, commit standards, and pull request workflow.
 
 ## Code of Conduct

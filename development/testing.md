@@ -1,5 +1,7 @@
 # Testing Guide
 
+Updated: 2026-03-22
+
 This guide covers the testing strategy, tooling, and conventions for the UniCore platform. Tests are organized into three tiers: unit tests, integration tests, and end-to-end (E2E) tests.
 
 ## Testing Stack

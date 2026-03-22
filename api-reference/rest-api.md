@@ -1,5 +1,7 @@
 # REST API Reference
 
+Updated: 2026-03-22
+
 UniCore exposes REST endpoints across several services, all routed through Nginx at `https://unicore.bemind.tech`. Direct service ports are listed for local development.
 
 ## Base URLs

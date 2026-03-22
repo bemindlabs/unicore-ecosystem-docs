@@ -1,5 +1,7 @@
 # Deploying UniCore on Microsoft Azure
 
+Updated: 2026-03-22
+
 This guide covers deploying the UniCore platform on Microsoft Azure using Azure Virtual Machines (Docker Compose) or AKS (Kubernetes).
 
 ## Recommended Architecture (Production)

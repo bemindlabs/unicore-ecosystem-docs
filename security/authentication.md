@@ -1,5 +1,7 @@
 # Authentication
 
+Updated: 2026-03-22
+
 UniCore uses [Passport.js](https://www.passportjs.org/) with two built-in strategies — **JWT** and **local** (username/password) — provided by the `api-gateway` service. Pro and Enterprise editions add SSO via the `unicore-pro/packages/sso` package.
 
 ---

@@ -1,5 +1,7 @@
 # System Requirements
 
+Updated: 2026-03-22
+
 This page describes the hardware, software, and network requirements for running UniCore.
 
 ## Hardware

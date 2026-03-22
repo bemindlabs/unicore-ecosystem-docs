@@ -1,5 +1,7 @@
 # Deploying UniCore on AWS
 
+Updated: 2026-03-22
+
 This guide covers deploying the UniCore platform on Amazon Web Services using EC2 (Docker Compose) or EKS (Kubernetes).
 
 ## Recommended Architecture (Production)

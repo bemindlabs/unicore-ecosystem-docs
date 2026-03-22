@@ -1,5 +1,7 @@
 # Theme System Guide
 
+Updated: 2026-03-22
+
 Customize the UniCore dashboard appearance with built-in themes or create your own.
 
 ## Overview

@@ -1,5 +1,7 @@
 # Networking
 
+Updated: 2026-03-22
+
 ## Traffic Flow — External to Internal
 
 ```mermaid

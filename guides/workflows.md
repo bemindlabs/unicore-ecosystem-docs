@@ -1,5 +1,7 @@
 # Workflow Automation Guide
 
+Updated: 2026-03-22
+
 Automate business processes with event-driven workflows powered by Kafka.
 
 ## Overview

@@ -1,5 +1,7 @@
 # UniCore Enterprise Edition
 
+Updated: 2026-03-22
+
 The Enterprise Edition is designed for organizations requiring multi-tenancy, compliance certifications, high-availability clustering, enterprise identity federation, and dedicated SLA support.
 
 ## Overview

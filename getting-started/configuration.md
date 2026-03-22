@@ -1,5 +1,7 @@
 # Configuration
 
+Updated: 2026-03-22
+
 UniCore is configured entirely through environment variables loaded from a `.env` file at the repository root. This page documents every variable, grouped by category.
 
 ## Overview

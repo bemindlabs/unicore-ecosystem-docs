@@ -1,5 +1,7 @@
 # UniCore Community Edition
 
+Updated: 2026-03-22
+
 The Community Edition is the open-core foundation of the UniCore platform — free forever, self-hosted, and fully functional for small teams and individual operators.
 
 ## Overview

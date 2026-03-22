@@ -1,5 +1,7 @@
 # SDK Reference — JavaScript / TypeScript Client
 
+Updated: 2026-03-22
+
 The UniCore SDK provides a typed client for the REST API, WebSocket gateway, and webhook utilities. It targets Node.js 20+ and modern browsers.
 
 ## Installation

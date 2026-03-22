@@ -1,5 +1,7 @@
 # Messaging Channels Guide
 
+Updated: 2026-03-22
+
 Connect UniCore agents to external messaging platforms — Telegram, LINE, Slack, WhatsApp, and more.
 
 ## Overview

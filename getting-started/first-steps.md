@@ -1,5 +1,7 @@
 # First Steps
 
+Updated: 2026-03-22
+
 This guide walks you through the platform after a successful installation. By the end you will have completed the setup wizard, created your first contact, sent an AI query, explored the ERP, and reviewed platform settings.
 
 > Prerequisite: Complete the [installation](installation.md) and confirm all containers are running (`make ps`).

@@ -1,5 +1,7 @@
 # Deploying UniCore on Google Cloud Platform
 
+Updated: 2026-03-22
+
 This guide covers deploying the UniCore platform on Google Cloud Platform using Compute Engine (Docker Compose) or GKE (Kubernetes).
 
 ## Recommended Architecture (Production)

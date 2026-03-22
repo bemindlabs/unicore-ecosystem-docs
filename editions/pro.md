@@ -1,5 +1,7 @@
 # UniCore Pro Edition
 
+Updated: 2026-03-22
+
 The Pro Edition extends the Community Edition with advanced agent capabilities, all messaging channels, role-based access control, SSO, white-label branding, and unlimited RAG storage. Activation requires a valid license key.
 
 ## Overview

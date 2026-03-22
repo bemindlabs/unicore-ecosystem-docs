@@ -1,5 +1,7 @@
 # Messaging
 
+Updated: 2026-03-22
+
 UniCore uses **Apache Kafka 7.5** (via KafkaJS 2.2) as its internal event streaming bus. The ERP service publishes domain events when business objects change state; the Workflow Engine consumes those events and executes configured automation actions.
 
 ## Kafka Infrastructure

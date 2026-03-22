@@ -1,5 +1,7 @@
 # Data Privacy
 
+Updated: 2026-03-22
+
 This document describes how UniCore handles personal data, outlines compliance obligations, and explains the controls available to operators for meeting GDPR and similar regulatory requirements.
 
 > **Edition note**: Full GDPR tooling (data subject request automation, consent management UI, audit export) is an **Enterprise** feature. Community and Pro editions provide the underlying data architecture and manual controls described below.

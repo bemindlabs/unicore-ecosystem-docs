@@ -1,5 +1,7 @@
 # On-Premise Deployment
 
+Updated: 2026-03-22
+
 This guide covers self-hosted, on-premise deployment of UniCore — running all services on your own hardware, within your own network, without any cloud dependency.
 
 ## Use Cases

@@ -1,5 +1,7 @@
 # Kubernetes Deployment
 
+Updated: 2026-03-22
+
 Kubernetes deployment for UniCore is recommended for production environments requiring high availability, horizontal scaling, and automated rollouts. This guide covers the manifest structure and planned Helm chart layout.
 
 > **Status**: Kubernetes manifests and Helm chart are in active development. This page documents the intended structure and configuration model. Docker Compose remains the primary supported deployment method — see [docker.md](./docker.md).
