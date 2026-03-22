@@ -150,7 +150,7 @@ CREATE DATABASE <erp-database-name> OWNER <db-user>;
 
 | Model | Purpose | Key Fields |
 |-------|---------|-----------|
-| `License` | License keys | `key` (unique, `UC-XXXX-XXXX-XXXX-XXXX`), `edition` (community/pro), `expiry`, `maxAgents`, `maxRoles`, 10 feature flag booleans |
+| `License` | License keys | `key` (unique, `UC-XXXX-XXXX-XXXX-XXXX`), `edition` (community/pro), `expiry`, `maxAgents`, `maxRoles`, 17 feature flag booleans |
 | `MachineBinding` | Hardware fingerprints | `cpuId`, `macAddress`, `diskId`, `hash` (SHA-256), `active` |
 | `AuditLog` | License operation log | `action` (AuditAction enum), `meta` JSON, `ip` |
 | `FeatureFlag` | Global platform feature flags | `key` (unique), `enabled` |
