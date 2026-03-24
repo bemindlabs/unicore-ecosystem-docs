@@ -10,7 +10,7 @@ AI-powered development team collaboration platform with 5 specialized SDLC agent
 |-----------|-------|
 | **License** | Business Source License 1.1 (BSL 1.1) |
 | **Repository** | Private (available with license) |
-| **Package** | `@unicore/ai-dlc` |
+| **Package** | `@bemindlabs/unicore-ai-dlc` |
 | **Ports** | WebSocket `19789`, HTTP `19790` |
 | **Framework** | NestJS 10.4, TypeScript 5.5 |
 

@@ -2,7 +2,7 @@
 
 Updated: 2026-03-22
 
-UniCore enforces authorization at every layer: NestJS route guards on individual endpoints, Prisma query scoping in service repositories, and (for Pro/Enterprise) the dedicated `@unicore/rbac` package for fine-grained permission management.
+UniCore enforces authorization at every layer: NestJS route guards on individual endpoints, Prisma query scoping in service repositories, and (for Pro/Enterprise) the dedicated `@bemindlabs/unicore-rbac` package for fine-grained permission management.
 
 ---
 
@@ -63,7 +63,7 @@ Authorization is enforced via NestJS guards applied at the controller or handler
 ### `@Roles()` Decorator
 
 ```typescript
-import { Roles } from '@unicore/shared-types';
+import { Roles } from '@bemindlabs/unicore-shared-types';
 
 @Controller('contacts')
 export class ContactsController {

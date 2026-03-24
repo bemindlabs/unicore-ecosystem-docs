@@ -117,12 +117,12 @@ interface Config {
 
 ## ESLint
 
-All packages extend the shared ESLint config (`@unicore/eslint-config`):
+All packages extend the shared ESLint config (`@bemindlabs/unicore-eslint-config`):
 
 ```json
 // .eslintrc.json
 {
-  "extends": ["@unicore/eslint-config"],
+  "extends": ["@bemindlabs/unicore-eslint-config"],
   "parserOptions": {
     "project": "./tsconfig.json"
   }
@@ -150,10 +150,10 @@ All packages extend the shared ESLint config (`@unicore/eslint-config`):
 
 ```bash
 # Lint a specific package
-pnpm --filter @unicore/api-gateway lint
+pnpm --filter @bemindlabs/unicore-api-gateway lint
 
 # Auto-fix
-pnpm --filter @unicore/api-gateway lint --fix
+pnpm --filter @bemindlabs/unicore-api-gateway lint --fix
 
 # Lint all
 pnpm lint
@@ -339,7 +339,7 @@ The API Gateway uses a global exception filter that:
 
 ```typescript
 // apps/dashboard/src/components/contacts/ContactCard.tsx
-import { Contact } from '@unicore/shared-types';
+import { Contact } from '@bemindlabs/unicore-shared-types';
 
 interface ContactCardProps {
   contact: Contact;
@@ -363,7 +363,7 @@ Use SWR for client-side data fetching in the dashboard:
 ```typescript
 import useSWR from 'swr';
 import { fetcher } from '@/lib/fetcher';
-import { Contact } from '@unicore/shared-types';
+import { Contact } from '@bemindlabs/unicore-shared-types';
 
 function useContacts() {
   const { data, error, isLoading, mutate } = useSWR<Contact[]>(
@@ -390,15 +390,15 @@ export default async function ContactsPage() {
 ### Tailwind CSS
 
 - Use Tailwind utility classes directly; avoid inline `style` attributes
-- Use `cn()` from `@unicore/ui` for conditional classes:
+- Use `cn()` from `@bemindlabs/unicore-ui` for conditional classes:
 
 ```typescript
-import { cn } from '@unicore/ui/lib/utils';
+import { cn } from '@bemindlabs/unicore-ui/lib/utils';
 
 <div className={cn('rounded-lg p-4', isActive && 'bg-primary text-primary-foreground')}>
 ```
 
-- Use shadcn/ui components from `@unicore/ui` — do not install shadcn/ui directly in the app
+- Use shadcn/ui components from `@bemindlabs/unicore-ui` — do not install shadcn/ui directly in the app
 
 ## Naming Conventions
 
@@ -428,7 +428,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 // 3. Internal workspace packages
-import { ContactStatus } from '@unicore/shared-types';
+import { ContactStatus } from '@bemindlabs/unicore-shared-types';
 
 // 4. Local imports (absolute paths via tsconfig paths)
 import { PrismaService } from '../prisma/prisma.service';

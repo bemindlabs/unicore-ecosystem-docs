@@ -61,17 +61,17 @@ export default config;
 pnpm test
 
 # Run unit tests for a specific service
-pnpm --filter @unicore/erp test
-pnpm --filter @unicore/api-gateway test
+pnpm --filter @bemindlabs/unicore-erp test
+pnpm --filter @bemindlabs/unicore-api-gateway test
 
 # Watch mode (rerun on file changes)
-pnpm --filter @unicore/erp test --watch
+pnpm --filter @bemindlabs/unicore-erp test --watch
 
 # Coverage report
-pnpm --filter @unicore/erp test --coverage
+pnpm --filter @bemindlabs/unicore-erp test --coverage
 
 # Run a specific test file
-pnpm --filter @unicore/erp test -- --testPathPattern=contacts.service
+pnpm --filter @bemindlabs/unicore-erp test -- --testPathPattern=contacts.service
 ```
 
 ### Writing Unit Tests
@@ -223,7 +223,7 @@ export default config;
 
 ```bash
 # Run integration tests for a service
-pnpm --filter @unicore/erp test:e2e
+pnpm --filter @bemindlabs/unicore-erp test:e2e
 
 # Run all integration tests
 pnpm test:e2e
@@ -348,19 +348,19 @@ export default defineConfig({
 
 ```bash
 # Install Playwright browsers (first time only)
-pnpm --filter @unicore/dashboard exec playwright install chromium
+pnpm --filter @bemindlabs/unicore-dashboard exec playwright install chromium
 
 # Run E2E tests
-pnpm --filter @unicore/dashboard test:e2e
+pnpm --filter @bemindlabs/unicore-dashboard test:e2e
 
 # Run in headed mode (see the browser)
-pnpm --filter @unicore/dashboard test:e2e --headed
+pnpm --filter @bemindlabs/unicore-dashboard test:e2e --headed
 
 # Run a specific test file
-pnpm --filter @unicore/dashboard test:e2e -- e2e/contacts.spec.ts
+pnpm --filter @bemindlabs/unicore-dashboard test:e2e -- e2e/contacts.spec.ts
 
 # Open Playwright report
-pnpm --filter @unicore/dashboard exec playwright show-report
+pnpm --filter @bemindlabs/unicore-dashboard exec playwright show-report
 ```
 
 ### Writing E2E Tests

@@ -1,7 +1,13 @@
 # Changelog — unicore-ecosystem-docs (Documentation)
 
-Updated: 2026-03-22
+Updated: 2026-03-24
 
+
+## [0.1.1] - 2026-03-24
+
+### Fixed
+- Container count corrected from 19 to 23
+- Replaced @unicore.dev emails with @bemind.tech
 
 ## [0.1.0] - 2026-03-22
 

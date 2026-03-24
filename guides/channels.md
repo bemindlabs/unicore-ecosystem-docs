@@ -146,7 +146,7 @@ Embed a chat widget on your website:
 ### Static Configuration (NestJS Module)
 
 ```typescript
-import { ChannelModule } from '@unicore/channels';
+import { ChannelModule } from '@bemindlabs/unicore-channels';
 
 @Module({
   imports: [
@@ -185,7 +185,7 @@ Channels with `enabled: false` are skipped during initialization.
 Bind AI agents to channels so inbound messages are routed to the right agent:
 
 ```typescript
-import { AgentBindingService } from '@unicore/channels';
+import { AgentBindingService } from '@bemindlabs/unicore-channels';
 
 // Bind Comms Agent to Telegram and LINE
 agentBinding.bind('comms-agent', 'telegram-main');

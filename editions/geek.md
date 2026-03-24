@@ -24,7 +24,7 @@ A full-featured command-line interface for all platform operations.
 
 ```bash
 # Install globally
-npm install -g @unicore-geek/cli
+npm install -g @bemindlabs/unicore-geek-cli
 
 # Authenticate
 unicore login --host http://localhost:4000 --email <your-admin-email>
@@ -154,7 +154,7 @@ my-plugin/
 ### Plugin Lifecycle
 
 ```typescript
-import { GeekPlugin, PluginContext } from '@unicore-geek/plugin-sdk';
+import { GeekPlugin, PluginContext } from '@bemindlabs/unicore-geek-plugin-sdk';
 
 export default class ExamplePlugin implements GeekPlugin {
   async onLoad(ctx: PluginContext): Promise<void> {
