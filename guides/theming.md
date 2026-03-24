@@ -1,6 +1,6 @@
 # Theme System Guide
 
-Updated: 2026-03-22
+Updated: 2026-03-24
 
 Customize the UniCore dashboard appearance with built-in themes or create your own.
 
@@ -15,7 +15,7 @@ UniCore ships with 4 theme options:
 | `light` | Light | Light | Light mode |
 | `retrodesk` | RetroDesk | Dark | Chinjan pixel art office theme |
 
-The theme selector is in the **backoffice header dropdown** (top-right of the dashboard). Selecting a theme applies it immediately and reloads the page to ensure full layout changes take effect.
+The theme selector is in the **Virtual Office header dropdown** (top-right of the dashboard). Selecting a theme applies it immediately and reloads the page to ensure full layout changes take effect.
 
 ## How It Works
 
@@ -57,9 +57,9 @@ Standard component variables scoped to `:root` (light) and `.dark` (dark):
 }
 ```
 
-**2. Backoffice `--bo-*` variables** (also in `globals.css`)
+**2. Virtual Office `--bo-*` variables** (also in `globals.css`)
 
-The backoffice layout uses a dedicated set of variables prefixed with `--bo-` for finer control over surfaces, text hierarchy, borders, and accent opacities:
+The Virtual Office layout uses a dedicated set of variables prefixed with `--bo-` for finer control over surfaces, text hierarchy, borders, and accent opacities:
 
 ```css
 :root {
@@ -125,12 +125,12 @@ RetroDesk supports both light and dark variants, with separate color palettes de
 
 ## Theme Selector
 
-The theme selector dropdown is in the **backoffice header** (top-right corner of the dashboard). Each option displays its label, icon, and description. Selecting a theme triggers `setThemeById()`, which applies the change and reloads the page.
+The theme selector dropdown is in the **Virtual Office header** (top-right corner of the dashboard). Each option displays its label, icon, and description. Selecting a theme triggers `setThemeById()`, which applies the change and reloads the page.
 
 The available options are defined in the theme registry:
 
 ```typescript
-// lib/backoffice/theme-registry.ts
+// lib/virtual-office/theme-registry.ts
 export const THEME_OPTIONS: ThemeOption[] = [
   { id: 'default', label: 'Default', icon: '', description: 'Follows system preference' },
   { id: 'dark',    label: 'Dark',    icon: '', description: 'Dark cyberpunk mode' },

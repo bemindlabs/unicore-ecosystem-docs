@@ -1,23 +1,25 @@
-# Backoffice Guide
+# Virtual Office Guide
 
-Updated: 2026-03-22
+Updated: 2026-03-24
 
 Manage your AI agent team from a visual, multi-agent workspace.
 
+> **Pro Add-on:** The Virtual Office requires the `featVirtualOffice` license flag and a Pro or higher edition.
+
 ## Overview
 
-The Backoffice is a dedicated workspace for monitoring and interacting with your AI agents. It presents agents as team members in a virtual office environment, with real-time status tracking, direct messaging, and configuration controls. The Backoffice connects to the OpenClaw WebSocket gateway to display live agent state and relay commands.
+The Virtual Office is a dedicated workspace for monitoring and interacting with your AI agents. It presents agents as team members in a virtual office environment, with real-time status tracking, direct messaging, and configuration controls. The Virtual Office connects to the OpenClaw WebSocket gateway to display live agent state and relay commands.
 
 ```
-Backoffice UI → OpenClaw Gateway (WS :18789 / HTTP :18790) → Agent Registry → Specialist Agents
+Virtual Office UI → OpenClaw Gateway (WS :18789 / HTTP :18790) → Agent Registry → Specialist Agents
 ```
 
-## Accessing the Backoffice
+## Accessing the Virtual Office
 
-Navigate to `/backoffice` in the dashboard, or click the **Backoffice** link in the sidebar.
+Navigate to `/virtual-office` in the dashboard, or click the **Virtual Office** link in the sidebar.
 
-- **URL:** `https://<your-domain>/backoffice`
-- The page uses a dedicated layout under `(backoffice)/backoffice/page.tsx`, separate from the main dashboard shell.
+- **URL:** `https://<your-domain>/virtual-office`
+- The page uses a dedicated layout under `(virtual-office)/virtual-office/page.tsx`, separate from the main dashboard shell.
 - Agent data is fetched from `GET /api/proxy/openclaw/health/agents` and polled every 10 seconds for live updates.
 - If the API is unreachable, the UI falls back to locally cached agent data and displays a warning banner.
 
@@ -78,7 +80,7 @@ Each agent card shows:
 
 A slide-in panel (right edge) for real-time conversation with agents, toggled via the chat icon in the header.
 
-- **General channel** (`chat-backoffice`) for team-wide messages.
+- **General channel** (`chat-virtual-office`) for team-wide messages.
 - **Direct messages** — Select a specific agent from the dropdown to open a private channel (`chat-agent-{agentId}`).
 - **@mentions** — Type `@` to trigger autocomplete for agent names. Mentioned names are rendered in bold.
 - **Reactions** — Hover over any message to add emoji reactions.
@@ -119,7 +121,7 @@ A slide-in panel (right edge) for real-time conversation with agents, toggled vi
 
 ## Themes
 
-The Backoffice supports two visual themes, switchable via the **ThemeSelector** in the header.
+The Virtual Office supports two visual themes, switchable via the **ThemeSelector** in the header.
 
 ### Default (Cyberpunk)
 
@@ -141,11 +143,11 @@ The Backoffice supports two visual themes, switchable via the **ThemeSelector** 
 ### Data Flow
 
 ```
-BackofficePage
+VirtualOfficePage
 ├── Fetches agents from OpenClaw gateway (GET /api/proxy/openclaw/health/agents)
 ├── Polls every 10 seconds for status updates
 ├── Caches agent data in localStorage (fallback on API failure)
-└── BackofficeApp
+└── VirtualOfficeApp
     ├── Header          — Tabs, agent count, theme selector, chat toggle
     ├── TeamSidebar     — Filterable agent list with terminal access
     ├── OfficeFloor     — 2D map with rooms, floors, and draggable agents
@@ -153,7 +155,7 @@ BackofficePage
     ├── AgentSettings   — Gateway agent config with autonomy and channels
     ├── AgentModal      — Add/edit/delete agent form
     ├── AgentTerminal   — Direct agent terminal overlay
-    └── ChatBox         — Team chat panel via WebSocket (chat-backoffice)
+    └── ChatBox         — Team chat panel via WebSocket (chat-virtual-office)
 ```
 
 ### Key Types
@@ -162,7 +164,7 @@ BackofficePage
 type AgentStatus = 'working' | 'idle' | 'offline';
 type RoomId = 'conference' | 'main-office' | 'standalone' | 'bedroom';
 
-interface BackofficeAgent {
+interface VirtualOfficeAgent {
   id: string;
   name: string;
   role: string;
@@ -176,13 +178,13 @@ interface BackofficeAgent {
 
 ### OpenClaw Gateway Integration
 
-The Backoffice communicates with agents through the OpenClaw WebSocket gateway:
+The Virtual Office communicates with agents through the OpenClaw WebSocket gateway:
 
 - **Agent registry:** `GET /api/proxy/openclaw/health/agents` — returns all registered agents with state, capabilities, and heartbeat.
 - **CRUD:** `POST`, `PUT`, `DELETE` on `/api/proxy/openclaw/agents/{id}`.
 - **WebSocket channels:**
   - `command-{agentId}` — Commander tab conversations.
-  - `chat-backoffice` — General team chat.
+  - `chat-virtual-office` — General team chat.
   - `chat-agent-{agentId}` — Direct messages to a specific agent.
 
 The gateway runs on ports 18789 (WebSocket) and 18790 (HTTP). See the [Agents Guide](agents.md) for full WebSocket message types.
