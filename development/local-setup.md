@@ -146,9 +146,9 @@ npx prisma studio  # opens on http://localhost:5555
 pnpm dev
 
 # Or start a specific service
-pnpm --filter @unicore/dashboard dev
-pnpm --filter @unicore/api-gateway dev
-pnpm --filter @unicore/erp dev
+pnpm --filter @bemindlabs/unicore-dashboard dev
+pnpm --filter @bemindlabs/unicore-api-gateway dev
+pnpm --filter @bemindlabs/unicore-erp dev
 ```
 
 ### Option B: Start Services Individually
@@ -215,11 +215,11 @@ curl http://localhost:4200/health
 pnpm build
 
 # Build a specific package
-pnpm --filter @unicore/shared-types build
-pnpm --filter @unicore/ui build
+pnpm --filter @bemindlabs/unicore-shared-types build
+pnpm --filter @bemindlabs/unicore-ui build
 
 # Watch mode (for package development)
-pnpm --filter @unicore/shared-types dev
+pnpm --filter @bemindlabs/unicore-shared-types dev
 ```
 
 ## Running Tests
@@ -231,10 +231,10 @@ See the full [testing guide](./testing.md) for details.
 pnpm test
 
 # Unit tests for a specific service
-pnpm --filter @unicore/erp test
+pnpm --filter @bemindlabs/unicore-erp test
 
 # Watch mode
-pnpm --filter @unicore/api-gateway test --watch
+pnpm --filter @bemindlabs/unicore-api-gateway test --watch
 
 # E2E tests (requires full stack running)
 pnpm test:e2e
@@ -299,7 +299,7 @@ pnpm install
 ### Prisma Client not generated
 
 ```bash
-pnpm --filter @unicore/api-gateway exec npx prisma generate
+pnpm --filter @bemindlabs/unicore-api-gateway exec npx prisma generate
 ```
 
 ### Kafka connection refused

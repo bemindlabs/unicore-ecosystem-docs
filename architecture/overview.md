@@ -164,7 +164,7 @@ The `UNICORE_EDITION` environment variable (`community`, `pro`, `full`) controls
 | Reverse Proxy | Nginx | alpine |
 | License Crypto | Ed25519 signing + SHA-256 fingerprinting | — |
 | Testing | Jest (unit), Playwright (E2E), SuperTest | 29 / 1.58 |
-| Package Namespace | `@unicore/*` (community+pro), `@unicore-license/*` | — |
+| Package Namespace | `@bemindlabs/unicore-*` (community+pro), `@bemindlabs/unicore-license-*` | — |
 
 ## Repository Structure (unicore)
 

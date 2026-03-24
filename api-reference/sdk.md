@@ -8,23 +8,23 @@ The UniCore SDK provides a typed client for the REST API, WebSocket gateway, and
 
 ```bash
 # pnpm (recommended)
-pnpm add @unicore/sdk
+pnpm add @bemindlabs/unicore-sdk
 
 # npm
-npm install @unicore/sdk
+npm install @bemindlabs/unicore-sdk
 
 # yarn
-yarn add @unicore/sdk
+yarn add @bemindlabs/unicore-sdk
 ```
 
-The SDK is part of the `@unicore/*` package family and is built with TypeScript 5.5 in strict mode.
+The SDK is part of the `@bemindlabs/unicore-*` package family and is built with TypeScript 5.5 in strict mode.
 
 ---
 
 ## Quick Start
 
 ```typescript
-import { UniCoreClient } from '@unicore/sdk';
+import { UniCoreClient } from '@bemindlabs/unicore-sdk';
 
 const client = new UniCoreClient({
   baseUrl: 'https://unicore.example.com',
@@ -46,7 +46,7 @@ console.log(`${total} contacts found`);
 ## Client Initialization
 
 ```typescript
-import { UniCoreClient } from '@unicore/sdk';
+import { UniCoreClient } from '@bemindlabs/unicore-sdk';
 
 const client = new UniCoreClient({
   // Required: base URL of your UniCore instance
@@ -415,7 +415,7 @@ console.log(`${info.vectorCount} vectors indexed`);
 The SDK includes a typed WebSocket client for the OpenClaw multi-agent gateway.
 
 ```typescript
-import { OpenClawClient } from '@unicore/sdk';
+import { OpenClawClient } from '@bemindlabs/unicore-sdk';
 
 const agent = new OpenClawClient({
   url: 'ws://localhost:18789',
@@ -514,7 +514,7 @@ import {
   NotFoundError,
   ValidationError,
   RateLimitError,
-} from '@unicore/sdk';
+} from '@bemindlabs/unicore-sdk';
 
 try {
   const contact = await client.erp.contacts.get('non-existent-id');
@@ -587,7 +587,7 @@ import type {
   // WebSocket
   AgentCapability,
   RegisteredAgent,
-} from '@unicore/sdk';
+} from '@bemindlabs/unicore-sdk';
 ```
 
 ---
@@ -656,4 +656,4 @@ UNICORE_REFRESH_TOKEN=a1b2c3...
 |------------|----------------|
 | Node.js | 20.0.0 |
 | TypeScript | 5.5 (for consumers) |
-| `@unicore/shared-types` | workspace version |
+| `@bemindlabs/unicore-shared-types` | workspace version |
