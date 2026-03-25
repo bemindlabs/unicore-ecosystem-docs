@@ -154,7 +154,7 @@ model ConsentRecord {
 Embed the consent widget in your customer-facing flows:
 
 ```tsx
-import { ConsentBanner } from '@unicore/ui';
+import { ConsentBanner } from '@bemindlabs/unicore-ui';
 
 <ConsentBanner
   purposes={['analytics', 'marketing_email']}
@@ -194,7 +194,7 @@ Retention jobs run daily via a Kafka-triggered workflow. Configure the schedule 
 
 ## Audit Logging
 
-All data access and modifications are written to the `AuditLog` table. The Pro `@unicore/audit` package extends this with:
+All data access and modifications are written to the `AuditLog` table. The Pro `@bemindlabs/unicore-audit` package extends this with:
 
 - Who accessed what data and when
 - Export to SIEM (Splunk, Datadog, ELK)

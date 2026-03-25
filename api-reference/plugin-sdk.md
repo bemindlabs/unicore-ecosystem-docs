@@ -2,7 +2,7 @@
 
 Updated: 2026-03-22
 
-Complete API reference for the `@unicore-geek/plugins` SDK (v0.0.2+).
+Complete API reference for the `@bemindlabs/unicore-geek-plugins` SDK (v0.0.2+).
 
 ## Package Exports
 
@@ -21,7 +21,7 @@ import type {
   ApiCallOptions,
   LogLevel,
   HttpMethod,
-} from '@unicore-geek/plugins';
+} from '@bemindlabs/unicore-geek-plugins';
 
 // Classes
 import {
@@ -29,13 +29,13 @@ import {
   PluginRegistry,
   PluginContextImpl,
   EventBus,
-} from '@unicore-geek/plugins';
+} from '@bemindlabs/unicore-geek-plugins';
 
 // Built-in examples
 import {
   HelloWorldPlugin,
   AutoBackupPlugin,
-} from '@unicore-geek/plugins';
+} from '@bemindlabs/unicore-geek-plugins';
 ```
 
 ---
@@ -261,7 +261,7 @@ interface PluginRecord {
 Manages the full plugin lifecycle.
 
 ```typescript
-import { PluginManager } from '@unicore-geek/plugins';
+import { PluginManager } from '@bemindlabs/unicore-geek-plugins';
 
 const manager = new PluginManager(options?: PluginManagerOptions);
 ```
@@ -305,7 +305,7 @@ interface PluginManagerOptions {
 Install, search, and update plugins.
 
 ```typescript
-import { PluginRegistry } from '@unicore-geek/plugins';
+import { PluginRegistry } from '@bemindlabs/unicore-geek-plugins';
 
 const registry = new PluginRegistry(
   manager: PluginManager,
@@ -364,7 +364,7 @@ interface RegistryEntry {
 The event system used by plugins to communicate.
 
 ```typescript
-import { EventBus } from '@unicore-geek/plugins';
+import { EventBus } from '@bemindlabs/unicore-geek-plugins';
 ```
 
 ### Methods
@@ -386,7 +386,7 @@ Hooks execute sequentially in ascending priority order. Errors in one hook are l
 The concrete implementation of `PluginContext`. Used internally by `PluginManager` — you typically don't instantiate this directly.
 
 ```typescript
-import { PluginContextImpl } from '@unicore-geek/plugins';
+import { PluginContextImpl } from '@bemindlabs/unicore-geek-plugins';
 
 const context = new PluginContextImpl(options: PluginContextOptions);
 ```
@@ -434,7 +434,7 @@ Declare in manifest to request access. Users see a consent prompt on install.
 |------------|----------------|
 | Node.js | 20.0.0 |
 | TypeScript | 5.5 |
-| `@unicore-geek/plugins` | 0.0.2 |
+| `@bemindlabs/unicore-geek-plugins` | 0.0.2 |
 
 ---
 

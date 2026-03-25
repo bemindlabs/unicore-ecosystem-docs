@@ -215,8 +215,7 @@ git push origin feature/my-feature
 # After merge: update the root repo to track the new submodule commit
 cd ..
 git add unicore
-git commit -m "chore: update unicore submodule"
-git push origin main
+git commit -m "chore: update submodule refs (unicore)"
 ```
 
 ## Reporting Issues

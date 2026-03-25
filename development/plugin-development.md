@@ -2,13 +2,13 @@
 
 Updated: 2026-03-22
 
-Build custom plugins for UniCore using the `@unicore-geek/plugins` SDK. Plugins extend the platform with custom CLI commands, event hooks, integrations, and automation.
+Build custom plugins for UniCore using the `@bemindlabs/unicore-geek-plugins` SDK. Plugins extend the platform with custom CLI commands, event hooks, integrations, and automation.
 
 ## Overview
 
 The UniCore plugin system provides a stable, typed API for extending the platform. Plugins are distributed as npm packages and installed via the CLI or the Plugin Registry.
 
-**SDK Package:** `@unicore-geek/plugins` (v0.0.2+)
+**SDK Package:** `@bemindlabs/unicore-geek-plugins` (v0.0.2+)
 
 ## Prerequisites
 
@@ -47,10 +47,10 @@ Add plugin metadata to `package.json`:
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@unicore-geek/plugins": ">=0.0.2"
+    "@bemindlabs/unicore-geek-plugins": ">=0.0.2"
   },
   "devDependencies": {
-    "@unicore-geek/plugins": ">=0.0.2",
+    "@bemindlabs/unicore-geek-plugins": ">=0.0.2",
     "typescript": "^5.5.0"
   }
 }
@@ -64,7 +64,7 @@ import type {
   IUnicorePlugin,
   PluginManifest,
   PluginContext,
-} from '@unicore-geek/plugins';
+} from '@bemindlabs/unicore-geek-plugins';
 
 export class MyPlugin implements IUnicorePlugin {
   readonly manifest: PluginManifest = {
@@ -316,7 +316,7 @@ writeFileSync(cachePath, JSON.stringify(data));
 The `PluginManager` handles the full plugin lifecycle:
 
 ```typescript
-import { PluginManager } from '@unicore-geek/plugins';
+import { PluginManager } from '@bemindlabs/unicore-geek-plugins';
 
 const manager = new PluginManager({
   pluginsDir: '~/.unicore/plugins',
@@ -350,7 +350,7 @@ await manager.disablePlugin('my-plugin');
 Install and search for plugins:
 
 ```typescript
-import { PluginRegistry } from '@unicore-geek/plugins';
+import { PluginRegistry } from '@bemindlabs/unicore-geek-plugins';
 
 const registry = new PluginRegistry(manager);
 
@@ -358,10 +358,10 @@ const registry = new PluginRegistry(manager);
 await registry.install('./path/to/plugin');
 
 // Install from npm
-await registry.install('@unicore/plugin-analytics');
+await registry.install('@bemindlabs/unicore-plugin-analytics');
 
 // Install specific version
-await registry.install('@unicore/plugin-analytics', { version: '1.2.0' });
+await registry.install('@bemindlabs/unicore-plugin-analytics', { version: '1.2.0' });
 
 // Force reinstall
 await registry.install('my-plugin', { force: true });
@@ -398,7 +398,7 @@ Declare required permissions in your manifest. Users see a consent prompt on ins
 A minimal plugin that registers a single CLI command:
 
 ```typescript
-import type { IUnicorePlugin, PluginManifest, PluginContext } from '@unicore-geek/plugins';
+import type { IUnicorePlugin, PluginManifest, PluginContext } from '@bemindlabs/unicore-geek-plugins';
 
 export class HelloWorldPlugin implements IUnicorePlugin {
   readonly manifest: PluginManifest = {
@@ -443,7 +443,7 @@ unicore hello-world:greet --name Developer --loud
 A plugin that hooks into config changes and creates automatic snapshots:
 
 ```typescript
-import type { IUnicorePlugin, PluginManifest, PluginContext } from '@unicore-geek/plugins';
+import type { IUnicorePlugin, PluginManifest, PluginContext } from '@bemindlabs/unicore-geek-plugins';
 import { writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
